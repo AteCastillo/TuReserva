@@ -1,0 +1,9 @@
+{
+   "host":"localhost",
+   "port": 3306,
+   "user": "services_test2",
+   "passwd": "services",
+   "db": "services_test_db",
+   "charset": "utf8"
+}
+
