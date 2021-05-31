@@ -1,0 +1,17 @@
+# How to Use API
+
+______________
+| Services   |
+--------------
+
+- Create A Service
+
+* Url: 127.0.0.1:5200/services/<partner_id>
+* Requeriments: Send a JSON With this Data
+    - Name: name of the service
+    - price: price of the service
+    - duration: duration of the service (in minutes)
+    - description: a description of the service
+  Example:
+  {"name":"Name", "price":999, "duration":30, "description":"description"}
+

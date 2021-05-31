@@ -16,10 +16,10 @@ class ModelManager:
             self.values = ['id', 'name', 
                           'address', 'phone',
                           'username', 'password',
-                          'cash', 'id']
+                          'wallet', 'category_id']
         elif model == 'Services':
             self.values = ['id', 'name',
-                          'description', 'price'
+                          'description', 'price',
                           'time', 'partner_id']
         elif model == 'Orders':
             self.values = ['id', 'amount',
