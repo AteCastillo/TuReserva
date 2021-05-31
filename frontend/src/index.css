@@ -17,3 +17,8 @@ code {
   justify-content: center;
   align-items: center;
 }
+
+.fix{
+  position: fixed;
+  bottom:0;
+}

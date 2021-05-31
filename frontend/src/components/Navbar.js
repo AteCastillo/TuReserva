@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {login} from './login';
-import {logout} from './logout';
+import {Login} from './Login';
+import {Logout} from './Logout';
 
 
 export const Navbar = (props) => (
@@ -20,11 +20,13 @@ export const Navbar = (props) => (
             <Link className="nav-link active" 
             aria-current="page" 
             to="/Register">
-              {props.islogged ?"logout":"login/signup"}
+              
+              {props.islogged ? "A":"B"}
               </Link>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+  
 );

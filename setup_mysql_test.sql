@@ -11,7 +11,7 @@ USE `services_test_db`;
 CREATE TABLE IF NOT EXISTS `Users` ( 
             user_id VARCHAR(50) NOT NULL, user_name VARCHAR(40) NOT NULL,
             user_password VARCHAR(50) NOT NULL, user_email VARCHAR(50),
-            user_cash INT,
+            user_cash INT NOT NULL DEFAULT 0,
             PRIMARY KEY ( user_id ));
 
 -- Create Categories Table If not Exists
@@ -65,8 +65,10 @@ CREATE TABLE IF NOT EXISTS `Images` (
 CREATE TABLE IF NOT EXISTS `Orders_Services` (
             order_id VARCHAR(50) NOT NULL,
             service_id VARCHAR(50) NOT NULL,
-            FOREIGN KEY ( order_id ) REFERENCES Orders(order_id),
-            FOREIGN KEY ( service_id ) REFERENCES Services(service_id));
+            FOREIGN KEY ( order_id ) REFERENCES Orders(order_id) 
+            ON DELETE CASCADE,
+            FOREIGN KEY ( service_id ) REFERENCES Services(service_id)
+            ON DELETE CASCADE);
 
 
 -- Create Users(user_id, user_name,  user_password,

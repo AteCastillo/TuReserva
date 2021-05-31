@@ -9,9 +9,9 @@ USE `services_db`;
 
 -- Create User Table If not Exists
 CREATE TABLE IF NOT EXISTS `Users` ( 
-            user_id VARCHAR(50) NOT NULL, user_name VARCHAR(40) NOT NULL,
-            user_password VARCHAR(50) NOT NULL, user_email VARCHAR(50),
-            user_cash INT,
+            user_id VARCHAR(50) NOT NULL, user_username VARCHAR(40) NOT NULL UNIQUE,
+            user_password VARCHAR(50) NOT NULL, user_email VARCHAR(50) UNIQUE,
+            user_cash INT NOT NULL DEFAULT 0,
             PRIMARY KEY ( user_id ));
 
 -- Create Categories Table If not Exists
@@ -23,8 +23,8 @@ CREATE TABLE IF NOT EXISTS `Categories` (
 CREATE TABLE IF NOT EXISTS `Partners` (
             partner_id VARCHAR(50) NOT NULL, partner_name VARCHAR(50) NOT NULL,
             partner_address VARCHAR(100) NOT NULL, partner_phone VARCHAR(20) NOT NULL, 
-            partner_user VARCHAR(50), partner_password VARCHAR(50), 
-            partner_cash INT NOT NULL, category_id VARCHAR(50) NOT NULL,
+            partner_username VARCHAR(50), partner_password VARCHAR(50), 
+            partner_wallet INT NOT NULL, category_id VARCHAR(50) NOT NULL,
             PRIMARY KEY ( partner_id ),
             FOREIGN KEY (category_id) REFERENCES Categories(category_id));
 
@@ -65,8 +65,10 @@ CREATE TABLE IF NOT EXISTS `Images` (
 CREATE TABLE IF NOT EXISTS `Orders_Services` (
             order_id VARCHAR(50) NOT NULL,
             service_id VARCHAR(50) NOT NULL,
-            FOREIGN KEY ( order_id ) REFERENCES Orders(order_id),
-            FOREIGN KEY ( service_id ) REFERENCES Services(service_id));
+            FOREIGN KEY ( order_id ) REFERENCES Orders(order_id) 
+            ON DELETE CASCADE,
+            FOREIGN KEY ( service_id ) REFERENCES Services(service_id)
+            ON DELETE CASCADE);
 
 
 -- Create Users(user_id, user_name,  user_password,

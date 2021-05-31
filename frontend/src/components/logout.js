@@ -1,5 +1,5 @@
-import React from 'react';
+import React from 'react'
 
-export const logout = () => {
-    <h2>logout</h2>
-};
+export const Logout = () => (
+    <h1> login</h1>
+);

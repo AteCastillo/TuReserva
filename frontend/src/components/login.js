@@ -1,5 +1,5 @@
-import React from 'react';
+import React from 'react'
 
-export const login = () => {
-    <h2>login/signup</h2>
-};
+export const Login = () => (
+    <h1> login</h1>
+);
