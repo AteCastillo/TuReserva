@@ -1,23 +1,24 @@
 # Tests - Test used for api in 127.0.0.1 port 5200
+
 ______________
 | # Services |
 --------------
-## Post method
 
+## Post method
 curl -X POST -H "Content-Type: application/json"
 -d '{"name":"name", "description":"new_description", "price":190, "time":20}'
 127.0.0.1:5200/services/<partner_id>
 
-## Get method
 
+## Get method
 curl 127.0.0.1:5200/services/<service_id>
 
-## Delete method
 
+## Delete method
 curl -X DELETE 127.0.0.1:5200/services/<service_id>
 
-## Update Method
 
+## Update Method
 curl -X PUT -H "Content-Type: application/json" 
 -d '{"name":"as", "description":"new_description edited", "price":190, "time":30}'
 127.0.0.1:5200/services/<service_id>
@@ -27,51 +28,72 @@ ____________
 ------------
 
 ## All Partners
-
 curl 127.0.0.1:5200/partners
 
-## Get specific partner
 
+## Get specific partner
 curl 127.0.0.1:5200/partners/<partner_id>
 
-## Create a partner (POST)
 
+## Create a partner (POST)
 curl -X POST -H "Content-Type: application/json"
 -d '{"name":"as", "address":"TEST", "phone":"123",
 "username":"new_partner","password":"123", "wallet":"100"}'
 127.0.0.1:5200/partners/id-01
 
-# Reviews
+
+_____________
+| # Users   |
+------------
+
+
+# Create User (POST Method)
+curl -X POST -H "Content-Type: application/json"
+-d '{"username":"username", "password":"pass",
+"email":"email@gmail.com", "cash":0}'
+127.0.0.1:5200/users
+
+
+# Get method
+curl 127.0.0.1:5200/users/<user_id>
+
+_____________
+| # Reviews |
+-------------
+
 
 ## Post Method
 curl -X POST -H "Content-Type: application/json" 
 -d '{"description":"example", "stars":5, "date":"1995-02-10"}' 
 127.0.0.1:5200/reviews/id-01/id-01
 
+
 ## Get method
 curl 127.0.0.1:5200/reviews/<partner_id>
 
-## Update method
 
+## Update method
 curl -X PUT -H "Content-Type: application/json" -d
 '{"description":"new description edited", "stars":5, "date":"1995-02-10"}'
 127.0.0.1:5200/reviews/<review_id>
 
+
 ## Delete method
 curl -X DELETE 127.0.0.1:5200/reviews/<review_id>
 
-# Orders
+____________
+| # Orders |
+------------
 
 ## Post method
-
 curl -X POST -H "Content-Type: application/json" -d
 '{"amount":600, "date":"1995-02-10 12:30", "services":["id-02","id-03"]}'
 127.0.0.1:5200/orders/<user_id>/<partner_id>
 
-## Get method
 
+## Get method
 curl 127.0.0.1:5200/orders/<order_id>
 
-## Delete method
 
+## Delete method
 curl -X DELETE 127.0.0.1:5200/orders/<order_id>

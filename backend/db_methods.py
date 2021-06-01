@@ -6,6 +6,7 @@ import MySQLdb
 from uuid import uuid4
 """Method to manage Information in the database"""
 
+
 class DBManager:
     __tables = {'Users':'user_id', 'Partners': 'partner_id', 
                 'Categories': 'category_id', 'Services':'service_id',
@@ -113,10 +114,11 @@ class DBManager:
             self.close_connection(conn,cur)
             return False
 
-    def select_register_id(self, table, id):
+    def select_register_id(self, table, id, fields=None):
         """Select all from a table(table) with the id(id)"""
-        sentence = "SELECT * FROM `{}` WHERE `{}`=\'{}\'".format(
-                   table, self.__tables[table], id)
+        select_fields = "*" if fields is None else fields
+        sentence = "SELECT {} FROM `{}` WHERE `{}`=\'{}\'".format(
+                   select_fields,table, self.__tables[table], id)
         register = {}
         model = ModelManager(table)
         conn = self.create_connection()
@@ -131,11 +133,14 @@ class DBManager:
         except:
             return None
 
-    def select_all_registers(self, table):
+    def select_all_registers(self, table, fields=None):
         """This Function recieves a name of a table (table)
         and returns all values in the format dict
         {elements:[{row1},{row2}]}"""
-        sentence = "SELECT * FROM `{}`;".format(table)
+        select_fields = "*" if fields is None else self.fields_corrector(table, fields)
+        sentence = "SELECT {} FROM `{}`;".format(select_fields, table)
+        print(sentence)
+        print(fields)
         values = []
         row = {}
         model = ModelManager(table)
@@ -145,22 +150,30 @@ class DBManager:
         query_rows = cur.fetchall()
         if (len(query_rows) == 0):
             return {"elements":[]}
+        print(fields)
+        print(select_fields)
         for element in query_rows:
-            for index, column in enumerate(model.values):
-                row[column] = element[index]
-            values.append(row)
+            '''if fields is None:
+                for index, column in enumerate(model.values):
+                    row[column] = element[index]
+            else:
+                for index, column in enumerate(fields):
+                    row[column] = element[index]
+            values.append(row)'''
+            print(element)
         register = {"elements":values}
         self.close_connection(conn, cur)
         return register
     
-    def select_all_for(self, table, for_table, id):
+    def select_all_for(self, table, for_table, id, fields=None):
         """This Function recieves a name of a table (table)
         and the table that connect with foreign key(for_table)
         with id (id)
         and returns all values in the format dict
         {elements:[{row1},{row2}]}"""
-        sentence = "SELECT * FROM `{}` WHERE `{}`=\'{}\';".format(
-                    table, self.__tables[for_table], id)
+        select_fields = "*" if fields is None else fields
+        sentence = "SELECT {} FROM `{}` WHERE `{}`=\'{}\';".format(
+                    select_fields, table, self.__tables[for_table], id)
         values = []
         row = {}
         model = ModelManager(table)
@@ -171,8 +184,12 @@ class DBManager:
         if (len(query_rows) == 0):
             return {"elements":[]}
         for element in query_rows:
-            for index, column in enumerate(model.values):
-                row[column] = element[index]
+            if fields is None:
+                for index, column in enumerate(model.values):
+                    row[column] = element[index]
+            else:
+                for index, column in enumerate(fields):
+                    row[column] = element[index]
             values.append(row)
         register = {"elements":values}
         self.close_connection(conn, cur)
@@ -196,3 +213,36 @@ class DBManager:
         except:
             self.close_connection(conn, cur)
             return False
+    
+    def login(self, username, password):
+        """Comprobe if exists the user  in the database
+        and if the password is correct return a token"""
+        sentence = "SELECT * FROM Users WHERE user_id={}".format(
+                   username)
+        # Create connection
+        conn = self.create_connection()
+        cur = conn.cursor()
+        try:
+            cur.execute(sentence)
+            query_rows = cur.fetchone()
+            if query_rows is None:
+                return "Wrong Password"
+            # Password in the database
+            db_pass = query_rows[2]
+            if password == db_pass:
+                return "Token"
+        except:
+            return "Something wrong"
+        finally:
+            self.close_connection(conn, cur)
+
+    def fields_corrector(self, table, fields):
+        """Convert fields passed for parameters in 
+        correct fields for the database
+        example: name -> partner_name"""
+        tablename = table.lower()
+        tablename = tablename[:-1]
+        new_fields = []
+        for elem in fields:
+            new_fields.append("{}_{}".format(tablename, elem))
+        return ", ".join(new_fields)

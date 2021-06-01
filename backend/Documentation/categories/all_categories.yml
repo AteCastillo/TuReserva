@@ -1,0 +1,18 @@
+paths:
+  /categories:
+tags:
+  - GET categories
+responses:
+  200:
+    description: the objects's attributes names and values in JSON format
+    schema:
+      properties:
+        elements:
+          type: array
+          description: an array of objects
+          items:
+            properties:
+              name:
+                type: string
+                description: The name of the categories
+    
