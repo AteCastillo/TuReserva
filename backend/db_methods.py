@@ -116,7 +116,7 @@ class DBManager:
 
     def select_register_id(self, table, id, fields=None):
         """Select all from a table(table) with the id(id)"""
-        select_fields = "*" if fields is None else fields
+        select_fields = "*" if fields is None else self.fields_corrector(table, fields)
         sentence = "SELECT {} FROM `{}` WHERE `{}`=\'{}\'".format(
                    select_fields,table, self.__tables[table], id)
         register = {}
@@ -126,8 +126,12 @@ class DBManager:
         try:
             cur.execute(sentence)
             query_rows = cur.fetchone()
-            for index, elem in enumerate(model.values):
-                register[elem] = query_rows[index]
+            if fields is None:
+                for index, elem in enumerate(model.values):
+                    register[elem] = query_rows[index]
+            else:
+                for index, elem in enumerate(fields):
+                    register[elem] = query_rows[index]
             self.close_connection
             return register
         except:
@@ -153,13 +157,13 @@ class DBManager:
         print(fields)
         print(select_fields)
         for element in query_rows:
-            '''if fields is None:
+            if fields is None:
                 for index, column in enumerate(model.values):
                     row[column] = element[index]
             else:
                 for index, column in enumerate(fields):
                     row[column] = element[index]
-            values.append(row)'''
+            values.append(row)
             print(element)
         register = {"elements":values}
         self.close_connection(conn, cur)
@@ -171,9 +175,10 @@ class DBManager:
         with id (id)
         and returns all values in the format dict
         {elements:[{row1},{row2}]}"""
-        select_fields = "*" if fields is None else fields
+        select_fields = "*" if fields is None else self.fields_corrector(table, fields)
         sentence = "SELECT {} FROM `{}` WHERE `{}`=\'{}\';".format(
                     select_fields, table, self.__tables[for_table], id)
+
         values = []
         row = {}
         model = ModelManager(table)

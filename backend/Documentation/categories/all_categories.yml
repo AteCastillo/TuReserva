@@ -1,3 +1,5 @@
+gets all categories
+---
 paths:
   /categories:
 tags:

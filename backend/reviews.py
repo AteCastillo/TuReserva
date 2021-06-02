@@ -7,17 +7,15 @@ review = Blueprint('review', __name__)
 manager = DBManager()
 
 # Create a Review
-@review.route('/reviews/<user_id>/<partner_id>', methods=['POST'],
+@review.route('/reviews', methods=['POST'],
            strict_slashes=False)
-def review_create(user_id, partner_id):
+def review_create():
     """Create a Review"""
     values = []
     user_values = ModelManager('Reviews').values
     user_values.pop(0)
     # Year format is YYYY-MM-DD
     json_request = request.json
-    json_request['user_id'] = user_id
-    json_request['partner_id'] = partner_id
     #Check for existence of all keys in a dict
     if all(k in json_request for k in user_values):
         for elem in user_values:

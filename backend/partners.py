@@ -31,7 +31,8 @@ def partner_signup(category_id):
            strict_slashes=False)
 def partner_get(partner_id):
     """Return Information about Partner"""
-    partner = manager.select_register_id('Partners', partner_id)
+    fields = ('id', 'name', 'phone', 'address')
+    partner = manager.select_register_id('Partners', partner_id, fields)
     if partner is None:
         return jsonify({'fail':'fail'}), 402
     return jsonify(partner)

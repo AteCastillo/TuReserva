@@ -37,8 +37,7 @@ curl 127.0.0.1:5200/partners/<partner_id>
 
 ## Create a partner (POST)
 curl -X POST -H "Content-Type: application/json"
--d '{"name":"as", "address":"TEST", "phone":"123",
-"username":"new_partner","password":"123", "wallet":"100"}'
+-d '{"name":"as", "address":"TEST", "phone":"123","username":"new_partner","password":"123", "wallet":"100"}'
 127.0.0.1:5200/partners/id-01
 
 

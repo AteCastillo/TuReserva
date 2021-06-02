@@ -1,22 +1,25 @@
 gets all partners
 ---
 tags:
-  - Partners of a category
+  - GET partners of a category
 responses:
   200:
     description: request executed successfully
     schema:
-      type: array
-      items:
-        properties:
-          id:
-            type: string
-          name:
-            type: string
-            description: the company name of the partner
-          address:
-             type: string
-             description: the address of the partner
-          phone:
-            type: string
-            description: The phone of the partner
+      properties:
+        elements:
+          type: array
+          description: an array of objects
+          items:
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+                description: the company name of the partner
+              address:
+                  type: string
+                  description: the address of the partner
+              phone:
+                type: string
+                description: The phone of the partner

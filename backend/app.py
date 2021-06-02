@@ -38,6 +38,10 @@ def login():
         return jsonify('bad request'), 403
     return jsonify(json)
 
+@app.route('/upload', methods=['POST'], strict_slashes=False)
+def upload_image():
+    pass
+
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port='5200', debug='True')

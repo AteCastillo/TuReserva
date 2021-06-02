@@ -9,6 +9,7 @@ manager = DBManager()
 # Create Service
 @service.route('/services/<partner_id>', methods=['POST'],
            strict_slashes=False)
+@swag_from('documentation/services/post_service.yml')
 def create_service(partner_id):
     """Method to create a service for a partner
     Returns a 203 response if it's created correctly

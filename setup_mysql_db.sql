@@ -10,7 +10,7 @@ USE `services_db`;
 -- Create User Table If not Exists
 CREATE TABLE IF NOT EXISTS `Users` ( 
             user_id VARCHAR(50) NOT NULL, user_username VARCHAR(40) NOT NULL UNIQUE,
-            user_password VARCHAR(50) NOT NULL, user_email VARCHAR(50) UNIQUE,
+            user_password VARCHAR(50) NOT NULL, user_email VARCHAR(50) NOT NULL UNIQUE,
             user_cash INT NOT NULL DEFAULT 0,
             PRIMARY KEY ( user_id ));
 
@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `Partners` (
             partner_address VARCHAR(100) NOT NULL, partner_phone VARCHAR(20) NOT NULL, 
             partner_username VARCHAR(50), partner_password VARCHAR(50), 
             partner_wallet INT NOT NULL, category_id VARCHAR(50) NOT NULL,
-            PRIMARY KEY ( partner_id ),
+            PRIMARY KEY (partner_id),
             FOREIGN KEY (category_id) REFERENCES Categories(category_id));
 
 -- Create Services Table If not Exists
