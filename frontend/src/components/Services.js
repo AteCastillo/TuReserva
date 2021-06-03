@@ -1,5 +1,7 @@
 import React from 'react'
+import BootstrapCarousel from './BootstrapCarousel';
 
 export const Services = () => (
-    <h1>"THis is Services"</h1>
+    
+    <BootstrapCarousel/>
 );

@@ -8,15 +8,12 @@ import {Footer} from "./components/Footer"
 //import {Form1} from "./components/Signup1"
 import {SignupPartner} from './components/SignupPartner'
 import {SignupUser} from './components/SignupUser'
-import BootstrapCarousel from './components/BootstrapCarousel'
-
 
 function App() {
   return (
    <Router>
      <Navbar islogged={true}/>
-     <BootstrapCarousel/>
-     
+
        <Switch>
          <Route path="/about" component={About}/>
          <Route path="/register" component={Register}/>
