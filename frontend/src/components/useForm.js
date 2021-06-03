@@ -22,13 +22,29 @@ const useForm = (callback,validateInfo) => {
             [e.target.name]: e.target.value
         });
     };
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
         e.preventDefault();
 
         setErrors(validateInfo(values));
 
-        
-        setIsSubmitting(true);
+        const res = await fetch(`http://localhost:5200/partners/id-01`, {
+            method: 'POST',
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username:values.username,
+                name:values.name,
+                address:values.address,
+                phone: values.telephone,
+                email: values.email,
+                password: values.password,
+            })
+            
+        })
+        console.log(values.username,values.name, values.address, values.telephone, values.email,values.password)
+        const data = await res.json()
+        console.log(data)
     };
 
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
 
 export const Footer = () => (
     <footer class="page-footer font-small cyan darken-3 fix">
