@@ -1,11 +1,11 @@
-flasgger endpoint for POST services
+Create a service
 ---
 paths:
   /services/{partner_id}
 tags:
-  - POST - Create a Service 
+  - Services
 parameters:
-  - name: partner_id
+  - name: name
     in: path
     data: string
     required: true
@@ -13,85 +13,32 @@ parameters:
   - name: description
     in: body
     data: string
-    required: false
-    description: text attribute of the place to update
-  - name: description
-    in: body
-    data: string
-    required: false
-    description: description of the place
-  - name: number_rooms
+    required: true
+    description: a description of the service
+  - name: price
     in: body
     data: integer
-    required: false
-    description: number of rooms in the place
-  - name: number_bathrooms
+    required: true
+    description: price of the service
+  - name: time
     in: body
     data: integer
-    required: false
-    description: number of bathrooms in the place
-  - name: max_guest
-    in: body
-    data: integer
-    required: false
-    description: maximum number of guests to stay per night
-  - name: price_by_night
-    in: body
-    data: integer
-    required: false
-    description: price per night of stay
-  - name: latitutude
-    in: body
-    data: number
-    required: false
-    description: latitude of geo location of place
-  - name: longitude
-    description: the longitude
+    required: true
+    description: the time of the service
   - name: example
     in: body
     data: string
     description: an example 
     schema:
       properties:
-        __class__:
+        name:
           type: string
-          description: Class name (obj.__class__.__name__)
-        id:
-          type: string
-          description: unique id of the object
-        user_id:
-          type: string
-          description: unique user id of the related state of the object
-        place_id:
-          type: string
-          description: unique place id attribute of the object
-        created_at:
-          type: string
-          description: datetime the object instance was created
-        updated_at:
-          type: string
-          description: datetime the object was updated
         description:
           type: string
-          description: description of the place
-        number_rooms:
+        price:
           type: integer
-          description: number of rooms in the place
-        number_bathrooms:
+        time:
           type: integer
-          description: number of bathrooms in the place
-        max_guest:
-          type: integer
-          description: maximum number of guests to stay per night
-        price_by_night:
-          type: integer
-          description: price per night of stay
-        latitutude:
-          type: number
-          description: latitude of geo location of place
-        longitude:
-          type: number
-          description: longitude of geo location of place
 responses:
   200:
     description: the objects's attributes names and values in JSON format

@@ -9,6 +9,7 @@ manager = DBManager()
 # Partner SignUp
 @partner.route('/partners/<category_id>', methods=['POST'],
            strict_slashes=False)
+@swag_from('documentation/partners/post_partner.yml')
 def partner_signup(category_id):
     """Create a partner and return a dictionary
     with the values of it"""

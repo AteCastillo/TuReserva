@@ -1,0 +1,85 @@
+Create a Review
+---
+paths:
+  /reviews
+tags:
+  - Reviews
+parameters:
+  - name: description
+    in: body
+    data: string
+    required: true
+    description: a description of the review
+  - name: stars
+    in: body
+    data: integer
+    required: true
+    description: the calification of the review
+  - name: partner_id
+    in: path
+    data: string
+    required: true
+    description: the name of the service
+  - name: user_id
+    in: body
+    data: string
+    required: true
+    description: the user of the review
+  - name: example
+    in: body
+    data: string
+    description: an example 
+    schema:
+      properties:
+        description:
+          type: string
+        stars:
+          type: integer
+        partner_id:
+          type: string
+        user_id:
+          type: string
+responses:
+  200:
+    description: the objects's attributes names and values in JSON format
+    schema:
+      properties:
+        __class__:
+          type: string
+          description: Class name (obj.__class__.__name__)
+        id:
+          type: string
+          description: unique id of the object
+        user_id:
+          type: string
+          description: unique user id of the related state of the object
+        place_id:
+          type: string
+          description: unique place id attribute of the object
+        created_at:
+          type: string
+          description: datetime the object instance was created
+        updated_at:
+          type: string
+          description: datetime the object was updated
+        description:
+          type: string
+          description: description of the place
+        number_rooms:
+          type: integer
+          description: number of rooms in the place
+        number_bathrooms:
+          type: integer
+          description: number of bathrooms in the place
+        max_guest:
+          type: integer
+          description: maximum number of guests to stay per night
+        price_by_night:
+          type: integer
+          description: price per night of stay
+        latitutude:
+          type: number
+          description: latitude of geo location of place
+        longitude:
+          type: number
+          description: longitude of geo location of place

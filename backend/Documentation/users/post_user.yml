@@ -1,0 +1,54 @@
+Create a User
+---
+paths:
+  /users
+tags:
+  - Users
+parameters:
+  - name: username
+    in: body
+    data: string
+    required: true
+    description: the username of the user
+  - name: password
+    in: body
+    data: string
+    required: true
+    description: the password of the user
+  - name: email
+    in: body
+    data: string
+    required: true
+    description: the email of the user
+  - name: example
+    in: body
+    data: string
+    description: an example 
+    schema:
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+        email:
+          type: string
+responses:
+  200:
+    description: the objects's attributes names and values in JSON format
+    schema:
+      properties:
+        __class__:
+          type: string
+          description: Class name (obj.__class__.__name__)
+        id:
+          type: string
+          description: unique id of the object
+        user_id:
+          type: string
+          description: unique user id of the related state of the object
+        place_id:
+          type: string
+          description: unique place id attribute of the object
+        created_at:
+          type: string
+          description: datetime the object instance was created

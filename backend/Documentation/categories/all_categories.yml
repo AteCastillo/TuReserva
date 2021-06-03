@@ -3,7 +3,7 @@ gets all categories
 paths:
   /categories:
 tags:
-  - GET categories
+  - Categories
 responses:
   200:
     description: the objects's attributes names and values in JSON format

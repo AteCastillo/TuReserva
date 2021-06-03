@@ -8,7 +8,7 @@ manager = DBManager()
 
 
 # Create an Order
-@order.route('/orders/<user_id>/<partner_id>', methods=['POST'],
+@order.route('/orders', methods=['POST'],
            strict_slashes=False)
 def order_create(user_id, partner_id):
     """Create a Review"""
@@ -17,8 +17,6 @@ def order_create(user_id, partner_id):
     user_values.pop(0)
     # DateTime format is YYYY-MM-DD HH-MM-SS
     json_request = request.json
-    json_request['user_id'] = user_id
-    json_request['partner_id'] = partner_id
     #Check for existence of all keys in a dict
     if all(k in json_request for k in user_values):
         for elem in user_values:

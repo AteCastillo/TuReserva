@@ -2,6 +2,7 @@ from db_methods import DBManager
 from models import ModelManager
 from flasgger.utils import swag_from
 from flask import Blueprint, jsonify, request
+from datetime import datetime
 
 review = Blueprint('review', __name__)
 manager = DBManager()
@@ -9,16 +10,20 @@ manager = DBManager()
 # Create a Review
 @review.route('/reviews', methods=['POST'],
            strict_slashes=False)
+@swag_from('documentation/reviews/post_review.yml')
 def review_create():
     """Create a Review"""
+    format_time = "%Y-%m-%d"
+    date = datetime.now().strftime(format_time)
     values = []
-    user_values = ModelManager('Reviews').values
-    user_values.pop(0)
+    review_values = ModelManager('Reviews').values
+    review_values.pop(0)
     # Year format is YYYY-MM-DD
     json_request = request.json
+    json_request['date'] = date
     #Check for existence of all keys in a dict
-    if all(k in json_request for k in user_values):
-        for elem in user_values:
+    if all(k in json_request for k in review_values):
+        for elem in review_values:
             values.append(json_request[elem])
         register = manager.insert_register('Reviews', values)
         return jsonify(register)

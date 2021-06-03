@@ -9,6 +9,7 @@ manager = DBManager()
 
 # User SignUp
 @user.route('/users', methods=['POST'], strict_slashes=False)
+@swag_from('documentation/users/post_user.yml')
 def user_signup():
     """Create a user"""
     values = []

@@ -1,7 +1,7 @@
 gets all partners
 ---
 tags:
-  - GET partners of a category
+  - Partners
 responses:
   200:
     description: request executed successfully
