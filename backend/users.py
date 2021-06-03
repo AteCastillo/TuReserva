@@ -28,6 +28,7 @@ def user_signup():
 
 # Get user info
 @user.route('/users/<user_id>', methods=['GET'])
+@swag_from('documentation/users/get_user.yml')
 def user_get(user_id):
     """Return Information about User"""
     user = manager.select_register_id('Users', user_id)

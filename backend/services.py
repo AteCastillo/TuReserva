@@ -31,6 +31,7 @@ def create_service(partner_id):
 # Get Service
 @service.route('/services/<service_id>', methods=['GET'],
            strict_slashes=False)
+@swag_from('documentation/services/get_services.yml')
 def service_get(service_id):
     """Return Information about a service"""
     service = manager.select_register_id('Services', service_id)
@@ -41,6 +42,7 @@ def service_get(service_id):
 # Delete Service
 @service.route('/services/<service_id>', methods=['DELETE'],
            strict_slashes=False )
+@swag_from('documentation/services/delete_service.yml')
 def service_delete(service_id):
     """Delete a service"""
     res = manager.delete_register('Services', service_id)
@@ -52,6 +54,7 @@ def service_delete(service_id):
 # Update Service
 @service.route('/services/<service_id>', methods=['PUT'],
            strict_slashes=False )
+@swag_from('documentation/services/update_service.yml')
 def service_update(service_id):
     """Update the values of a service"""
     values = []

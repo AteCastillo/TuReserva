@@ -33,6 +33,7 @@ def review_create():
 # Show all reviews of a partner <partner_id>
 @review.route('/reviews/<partner_id>', methods=['GET'],
            strict_slashes=False)
+@swag_from('documentation/reviews/get_reviews.yml')
 def review_get(partner_id):
     """Return All reviews of a partner
     in format {element:[{review 1}, {review 2}]}"""
@@ -44,6 +45,7 @@ def review_get(partner_id):
 # Delete a Review
 @review.route('/reviews/<review_id>', methods=['DELETE'],
            strict_slashes=False)
+@swag_from('documentation/reviews/delete_review.yml')
 def review_delete(review_id):
     """This function delete a review<review_id>"""
     res = manager.delete_register('Reviews', review_id)
@@ -55,6 +57,7 @@ def review_delete(review_id):
 # Update a Review
 @review.route('/reviews/<review_id>', methods=['PUT'],
            strict_slashes=False )
+@swag_from('documentation/reviews/update_review.yml')
 def review_update(review_id):
     """Update the values of a Review"""
     values = []

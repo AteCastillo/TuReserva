@@ -10,6 +10,7 @@ manager = DBManager()
 # Create an Order
 @order.route('/orders', methods=['POST'],
            strict_slashes=False)
+@swag_from('documentation/orders/post_order.yml')
 def order_create(user_id, partner_id):
     """Create a Review"""
     values = []
@@ -32,6 +33,7 @@ def order_create(user_id, partner_id):
 
 # Get an Order
 @order.route('/orders/<order_id>', methods=['GET'])
+@swag_from('documentation/orders/get_order.yml')
 def orders_get(order_id):
     """Return Information about an Order"""
     order = manager.select_register_id('Orders', order_id)
@@ -42,6 +44,7 @@ def orders_get(order_id):
 # Delete an order
 @order.route('/orders/<order_id>', methods=['DELETE'],
            strict_slashes=False)
+@swag_from('documentation/orders/delete_order.yml')
 def order_delete(order_id):
     """This function delete an order <order_id>"""
     res = manager.delete_register('Orders', order_id)

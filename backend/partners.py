@@ -30,6 +30,7 @@ def partner_signup(category_id):
 
 @partner.route('/partners/<partner_id>', methods=['GET'],
            strict_slashes=False)
+@swag_from('documentation/partners/get_partner.yml')
 def partner_get(partner_id):
     """Return Information about Partner"""
     fields = ('id', 'name', 'phone', 'address')
