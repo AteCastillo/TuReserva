@@ -1,0 +1,27 @@
+/*.container-fluid {
+    background-color: black;
+}*/
+.navbar-logo {
+    height: 14vmin;
+    pointer-events: none;
+    position: relative;
+    left: 0px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .navbar-logo {
+        animation: navbar-logo infinite 30s linear;
+    }
+}
+
+
+
+@keyframes navbar-logo {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
