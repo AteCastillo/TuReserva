@@ -35,7 +35,7 @@ def partner_signup():
 @swag_from('documentation/partners/get_partner.yml')
 def partner_get(partner_id):
     """Return Information about Partner"""
-    fields = ('id', 'name', 'phone', 'address')
+    fields = ('id', 'name', 'description','phone', 'address')
     partner = manager.select_register_id('Partners', partner_id, fields)
     if partner is None:
         return jsonify({'msg':'Not found'}), 404

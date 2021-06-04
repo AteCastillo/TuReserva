@@ -6,7 +6,6 @@ import {Navbar} from "./components/Navbar"
 import {Register} from './components/Register'
 import {Footer} from "./components/Footer"
 import {Categories} from './components/Categories'
-//import {Form1} from "./components/Signup1"
 import {SignupPartner} from './components/SignupPartner'
 import {SignupUser} from './components/SignupUser'
 
