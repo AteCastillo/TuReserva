@@ -18,7 +18,6 @@ def partner_signup():
     user_values.pop(0)
     json_request = request.json
     json_request['wallet'] = 0
-    print(json_request)
     #Check for existence of all keys in a dict
     if all(k in json_request for k in user_values):
         for elem in user_values:
@@ -40,11 +39,3 @@ def partner_get(partner_id):
     if partner is None:
         return jsonify({'msg':'Not found'}), 404
     return jsonify(partner), 200
-
-@partner.route('/partners')
-@swag_from('documentation/partners/all_partners.yml')
-def all_partners():
-    """Return all partners information"""
-    fields = ('name', 'address', 'phone')
-    all_partners = manager.select_all_registers('Partners', fields)
-    return jsonify(all_partners)

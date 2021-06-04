@@ -175,7 +175,6 @@ class DBManager:
         select_fields = "*" if fields is None else self.fields_corrector(table, fields)
         sentence = "SELECT {} FROM `{}` WHERE `{}`=\'{}\';".format(
                     select_fields, table, self.__tables[for_table], id)
-
         values = []
         row = {}
         model = ModelManager(table)
