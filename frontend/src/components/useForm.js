@@ -38,11 +38,10 @@ const useForm = (callback,validateInfo) => {
                 address:values.address,
                 phone: values.telephone,
                 email: values.email,
-                password: values.password,
+                password: values.password
             })
             
         })
-        console.log(values.username,values.name, values.address, values.telephone, values.email,values.password)
         const data = await res.json()
         console.log(data)
     };
