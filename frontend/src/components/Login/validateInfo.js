@@ -1,7 +1,7 @@
 export default function validateInfo(values){
     let errors = {}
     // trim to get rid of whitespace, if nothing is typed in there
-    if(!values.username.trim()){
+    if(!values.username){
         errors.username = 'Username required';
     }
 

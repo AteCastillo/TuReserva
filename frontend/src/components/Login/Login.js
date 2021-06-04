@@ -10,12 +10,12 @@ export const Login = () => {
     }
     return (
     <>
-    <div className='form-container'>
+    <div className='login-container'>
         <span className='close-btn'>×</span>
-        <div className='form-content-left'>
-            <h1> Not a partner yet?</h1>
+        <div>
+           
             <span className='form-imput-login'>
-               Signup <a href="#">here</a>
+               Not a partner yet? Signup <a href="#">here</a>
             </span>
         </div>
             {/* if is not submitted, display form, else success:*/}

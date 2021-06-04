@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {Login} from './Login';
+import './Navbar.css';
 //import {Logout} from './Logout';
 import logo from './logo2.png';
 //import './Navbar.css';
@@ -29,7 +29,7 @@ export const Navbar = (props) => (
           </li>
         </ul>
       </div>
-      <Login/>
+      <Link className="form-login" aria-current="page" to="/login">Log in</Link>
       <Link className="form-signupuser" aria-current="page" to="/signupuser">Sing up</Link>
       <Link className="form-signuppartner" aria-current="page" to="/signuppartner">Become our partner</Link>
     </div>

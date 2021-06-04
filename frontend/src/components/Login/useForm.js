@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 
-const useFormLogin = (callback,validateInfo) => {
+const useFormLogin = (callback,validateInfoLogin) => {
     const [values,setValues] = useState({
         username:'', 
         password: '',
@@ -20,7 +20,7 @@ const useFormLogin = (callback,validateInfo) => {
     const handleSubmit = async e => {
         e.preventDefault();
 
-        setErrors(validateInfo(values));
+        setErrors(validateInfoLogin(values));
 
         const res = await fetch(`http://localhost:5200/login`, {
             method: 'POST',
@@ -37,7 +37,7 @@ const useFormLogin = (callback,validateInfo) => {
         console.log(data)
     };
 
-
+/*
     useEffect(
         () => {
         if (Object.keys(errors).length === 0 && isSubmitting){
@@ -45,7 +45,7 @@ const useFormLogin = (callback,validateInfo) => {
         }
     },
     [errors]
-    );
+    ); */
     return { handleChange, values, handleSubmit, errors };
 };
 
