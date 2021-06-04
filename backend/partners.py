@@ -18,7 +18,6 @@ def partner_signup():
     user_values.pop(0)
     json_request = request.json
     json_request['wallet'] = 0
-    print(json_request)
     #Check for existence of all keys in a dict
     if all(k in json_request for k in user_values):
         for elem in user_values:
