@@ -27,7 +27,7 @@ const useForm = (callback,validateInfo) => {
 
         setErrors(validateInfo(values));
 
-        const res = await fetch(`http://localhost:5200/partners/id-01`, {
+        const res = await fetch(`http://localhost:5200/partners`, {
             method: 'POST',
             headers:{
                 'Content-Type': 'application/json'
@@ -38,7 +38,8 @@ const useForm = (callback,validateInfo) => {
                 address:values.address,
                 phone: values.telephone,
                 email: values.email,
-                password: values.password
+                password: values.password,
+                category_id: 'id-01'
             })
             
         })

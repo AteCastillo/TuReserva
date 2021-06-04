@@ -92,11 +92,11 @@ INSERT INTO Categories VALUES
 
 INSERT INTO Partners VALUES
 ('id-01', 'company 01', 'address 01', '12121212', 
-'company-user01', 'password', 12350, 'id-01'), 
+'company-user01', 'email2','password', 12350, 'id-01'), 
 ('id-02', 'company 02', 'address 02', '12121212', 
-'company-user02', 'password', 14550, 'id-01'),
+'company-user02','email3', 'password', 14550, 'id-01'),
 ('id-03', 'company 03', 'address 03', '12121212', 
-'company-user03', 'password', 1250, 'id-02');
+'company-user03', 'email4','password', 1250, 'id-02');
 
 -- Create Services(service_id, service_name, service_description
 --          service_price, service_time, partner_id)

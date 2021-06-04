@@ -10,7 +10,7 @@ manager = DBManager()
 @partner.route('/partners', methods=['POST'],
            strict_slashes=False)
 @swag_from('documentation/partners/post_partner.yml')
-def partner_signup(category_id):
+def partner_signup():
     """Create a partner and return a dictionary
     with the values of it"""
     values = []
@@ -18,6 +18,7 @@ def partner_signup(category_id):
     user_values.pop(0)
     json_request = request.json
     json_request['wallet'] = 0
+    print(json_request)
     #Check for existence of all keys in a dict
     if all(k in json_request for k in user_values):
         for elem in user_values:
