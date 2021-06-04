@@ -34,9 +34,11 @@ manager = DBManager()
 @cross_origin(supports_credentials=True)
 def login():
     json_request = request.json
-    if 'username' in json_request and 'password' in json_request and len(json_request) == 2:
-        return jsonify('bad request'), 403
-    return jsonify(json)
+    if 'username' in json_request and 'password' in json_request:
+        msg = manager.login(json_request['username'], json_request['password'])
+        return jsonify({'msg':msg})
+    return jsonify({'msg':'bad request'}), 403
+
 
 @app.route('/upload', methods=['POST'], strict_slashes=False)
 def upload_image():
