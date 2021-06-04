@@ -1,5 +1,5 @@
-import React from 'react'
-import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
+import React from 'react';
+import {Link} from 'react-router-dom';
 
 export const Footer = () => (
     <footer class="page-footer font-small cyan darken-3 fix">
@@ -27,14 +27,18 @@ export const Footer = () => (
               <a class="pin-ic">
                 <i class="fab fa-pinterest fa-lg white-text fa-2x"> </i>
               </a>
-            </div>
+              <a className="nav-item">
+                <Link className="nav-link active" aria-current="page" to="/about">About</Link>
+              </a>
+              <a>Privacy</a>
+              <a>FAQ & Terms of Use</a>
+              <a>Contact Us</a>
+              <a>Become our partner</a>
+              </div>
           </div>
         </div>
       </div>
-
-      <div class="footer-copyright text-center py-3">© 2020 Copyright:
-        <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
-      </div>
+      
 
     
     </footer>
