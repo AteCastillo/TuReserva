@@ -26,16 +26,29 @@ const FormSignup = ({ submitForm }) => {
             </div>
             
             <div className='form-imputs'>
-                <label className='form-label'>Company name</label>
+                <label className='form-label'>Company's name</label>
                 <input
                     className='form-imput'
                     type='text'
                     name='name'
-                    placeholder='Enter your company name'
+                    placeholder="Enter your company's name"
                     value={values.name}
                     onChange={handleChange}
                 />
                 {errors.name && <p>{errors.name}</p>}
+            </div>
+            
+            <div className='form-imputs'>
+                <label className='form-label'>Company's description</label>
+                <input
+                    className='form-imput'
+                    type='text'
+                    name='description'
+                    placeholder="Enter your company's description"
+                    value={values.description}
+                    onChange={handleChange}
+                />
+                {errors.description && <p>{errors.description}</p>}
             </div>
 
             <div className='form-imputs'>

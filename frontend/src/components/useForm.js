@@ -4,6 +4,7 @@ const useForm = (callback,validateInfo) => {
     const [values,setValues] = useState({
         username:'',
         name:'',
+        description:'',
         address:'',
         telephone:'',
         email: '',
@@ -35,6 +36,7 @@ const useForm = (callback,validateInfo) => {
             body: JSON.stringify({
                 username:values.username,
                 name:values.name,
+                description:values.description,
                 address:values.address,
                 phone: values.telephone,
                 email: values.email,
