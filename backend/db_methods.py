@@ -125,7 +125,7 @@ class DBManager:
         cur = conn.cursor()
         cur.execute(sentence)
         query_rows = cur.fetchone()
-        if len(query_rows) == 0:
+        if query_rows is None:
             return None
         if fields is None:
             for index, elem in enumerate(model.values):
@@ -175,7 +175,6 @@ class DBManager:
         select_fields = "*" if fields is None else self.fields_corrector(table, fields)
         sentence = "SELECT {} FROM `{}` WHERE `{}`=\'{}\';".format(
                     select_fields, table, self.__tables[for_table], id)
-
         values = []
         row = {}
         model = ModelManager(table)

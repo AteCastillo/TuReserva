@@ -39,11 +39,3 @@ def partner_get(partner_id):
     if partner is None:
         return jsonify({'msg':'Not found'}), 404
     return jsonify(partner), 200
-
-@partner.route('/partners')
-@swag_from('documentation/partners/all_partners.yml')
-def all_partners():
-    """Return all partners information"""
-    fields = ('name', 'address', 'phone')
-    all_partners = manager.select_all_registers('Partners', fields)
-    return jsonify(all_partners)
