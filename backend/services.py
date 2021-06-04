@@ -24,9 +24,11 @@ def create_service(partner_id):
         for elem in service_values:
             values.append(json_request[elem])
         register = manager.insert_register('Services', values)
-        return jsonify(register), 203
+        if register is None:
+            return jsonify({'msg':'Error'}), 403
+        return jsonify({'msg':'OK'}), 201
     else:
-        return "Miss some value"
+        return jsonify({"msg":"Miss some value"}), 400
 
 # Get Service
 @service.route('/services/<service_id>', methods=['GET'],
@@ -36,8 +38,8 @@ def service_get(service_id):
     """Return Information about a service"""
     service = manager.select_register_id('Services', service_id)
     if service is None:
-        return jsonify({'fail':'fail'}), 402
-    return jsonify(service)
+        return jsonify({'msg':'Not found'}), 404
+    return jsonify(service), 200
 
 # Delete Service
 @service.route('/services/<service_id>', methods=['DELETE'],

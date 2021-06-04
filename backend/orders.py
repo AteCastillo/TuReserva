@@ -23,13 +23,15 @@ def order_create(user_id, partner_id):
         for elem in user_values:
             values.append(json_request[elem])
         register = manager.insert_register('Orders', values)
+        if register is None:
+            return jsonify({'msg':'Error'}), 403
         res = manager.create_orders_services(
             register['id'], json_request['services'])
         if res == False:
             return "Something wrong"
-        return jsonify("OK"), 200
+        return jsonify({'msg':'OK'}), 201
     else:
-        return "Miss some value"
+        return jsonify({"msg":"Miss some value"}), 400
 
 # Get an Order
 @order.route('/orders/<order_id>', methods=['GET'])
@@ -38,8 +40,8 @@ def orders_get(order_id):
     """Return Information about an Order"""
     order = manager.select_register_id('Orders', order_id)
     if order is None:
-        return jsonify({'fail':'fail'}), 402
-    return jsonify(order)
+        return jsonify({'msg':'Not found'}), 404
+    return jsonify(order), 200
 
 # Delete an order
 @order.route('/orders/<order_id>', methods=['DELETE'],

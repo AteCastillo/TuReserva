@@ -33,22 +33,28 @@ parameters:
         email:
           type: string
 responses:
-  200:
-    description: the objects's attributes names and values in JSON format
+  201:
+    description: the partner was created correctly
     schema:
       properties:
-        __class__:
+        msg:
           type: string
-          description: Class name (obj.__class__.__name__)
-        id:
+          description: OK
+          value: OK
+  400:
+    description: Some element wasn't sended
+    schema:
+      properties:
+        msg:
           type: string
-          description: unique id of the object
-        user_id:
+          description: Miss some value
+          value: Miss some value
+  403:
+    description: Something was wrong
+    schema:
+      properties:
+        msg:
           type: string
-          description: unique user id of the related state of the object
-        place_id:
-          type: string
-          description: unique place id attribute of the object
-        created_at:
-          type: string
-          description: datetime the object instance was created
+          description: Error
+          value: error
+  

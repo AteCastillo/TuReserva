@@ -1,0 +1,66 @@
+Create an Order
+---
+paths:
+  /orders
+tags:
+  - Orders
+parameters:
+  - name: amount
+    in: body
+    data: integer
+    required: true
+    description: the amount of the order
+  - name: date
+    in: body
+    data: string
+    required: true
+    description: the day an hour of the order
+  - name: user_id
+    in: body
+    data: string
+    required: true
+    description: the user of the order
+  - name: partner_id
+    in: body
+    data: string
+    required: true
+    description: the partner of the order
+  - name: example
+    in: body
+    data: string
+    description: an example 
+    schema:
+      properties:
+        amount:
+          type: integer
+        date:
+          type: string
+        user_id:
+          type: string
+        partner_id:
+          type: string
+responses:
+  201:
+    description: the partner was created correctly
+    schema:
+      properties:
+        msg:
+          type: string
+          description: OK
+          value: OK
+  400:
+    description: Some element wasn't sended
+    schema:
+      properties:
+        msg:
+          type: string
+          description: Miss some value
+          value: Miss some value
+  403:
+    description: Something was wrong
+    schema:
+      properties:
+        msg:
+          type: string
+          description: Error
+          value: error

@@ -26,9 +26,11 @@ def review_create():
         for elem in review_values:
             values.append(json_request[elem])
         register = manager.insert_register('Reviews', values)
-        return jsonify(register)
+        if register is None:
+            return jsonify({'msg':'Error'}), 403
+        return jsonify({'msg':'OK'}), 201
     else:
-        return "Miss some value"
+        return jsonify({"msg":"Miss some value"}), 400
 
 # Show all reviews of a partner <partner_id>
 @review.route('/reviews/<partner_id>', methods=['GET'],
@@ -39,8 +41,8 @@ def review_get(partner_id):
     in format {element:[{review 1}, {review 2}]}"""
     reviews = manager.select_all_for('Reviews', 'Partners', partner_id)
     if reviews is None:
-        return jsonify({'fail':'fail'}), 402
-    return jsonify(reviews)
+        return jsonify({'msg':'Not found'}), 404
+    return jsonify(reviews), 200
 
 # Delete a Review
 @review.route('/reviews/<review_id>', methods=['DELETE'],

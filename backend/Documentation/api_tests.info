@@ -5,8 +5,8 @@ ______________
 --------------
 
 ## Post method
-curl -X POST -H "Content-Type: application/json"
--d '{"name":"name", "description":"new_description", "price":190, "time":20}'
+curl -X POST -H "Content-Type: application/json" \
+-d '{"name":"name", "description":"new_description", "price":190, "time":20}' \
 127.0.0.1:5200/services/<partner_id>
 
 

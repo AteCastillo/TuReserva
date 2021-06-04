@@ -1,0 +1,31 @@
+Partner Info
+---
+path:
+  /partners/{partner_id}
+tags:
+  - Partners
+parameters:
+  - partner_id: 
+    in: path
+    type: string
+    required: true
+    description: the unique id of the partner
+responses:
+  200:
+    description: Successful request
+    schema:
+      properties:
+        id:
+          type: string
+          description: the id of the partner
+        address:
+          type: string
+          description: the address of the partner
+        name:
+           type: string
+           description: the name of the partner
+        phone:
+           type: string
+           description: the phone of the partner
+  404:
+    description: Not Found

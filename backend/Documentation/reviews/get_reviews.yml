@@ -1,0 +1,37 @@
+Show all reviews
+---
+paths:
+  /reviews/{partner_id}:
+tags:
+  - Reviews
+parameters:
+  - partner_id: 
+    in: path
+    type: string
+    required: true
+    description: the unique id of the partner
+responses:
+  200:
+    description: all reviews of a partner
+    schema:
+      properties:
+        elements:
+          type: array
+          description: an array of objects
+          items:
+            properties:
+              user_id:
+                type: string
+                description: The name of the categories
+              id:
+                type: string
+                description: the id of the category
+              date:
+                type: string
+                description: the date when the review was created
+              stars:
+                type: string
+                description: the puntuation of the review
+            self.values = ['id', 'description', 
+                          'stars', 'date',
+                          'user_id', 'partner_id']

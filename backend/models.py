@@ -15,8 +15,9 @@ class ModelManager:
         elif model == 'Partners':
             self.values = ['id', 'name', 
                           'address', 'phone',
-                          'username', 'password',
-                          'wallet', 'category_id']
+                          'username', 'email',
+                          'password', 'wallet',
+                          'category_id']
         elif model == 'Services':
             self.values = ['id', 'name',
                           'description', 'price',

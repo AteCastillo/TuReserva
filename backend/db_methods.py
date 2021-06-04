@@ -123,19 +123,18 @@ class DBManager:
         model = ModelManager(table)
         conn = self.create_connection()
         cur = conn.cursor()
-        try:
-            cur.execute(sentence)
-            query_rows = cur.fetchone()
-            if fields is None:
-                for index, elem in enumerate(model.values):
-                    register[elem] = query_rows[index]
-            else:
-                for index, elem in enumerate(fields):
-                    register[elem] = query_rows[index]
-            self.close_connection
-            return register
-        except:
+        cur.execute(sentence)
+        query_rows = cur.fetchone()
+        if len(query_rows) == 0:
             return None
+        if fields is None:
+            for index, elem in enumerate(model.values):
+                register[elem] = query_rows[index]
+        else:
+            for index, elem in enumerate(fields):
+                register[elem] = query_rows[index]
+        self.close_connection
+        return register
 
     def select_all_registers(self, table, fields=None):
         """This Function recieves a name of a table (table)
@@ -153,9 +152,7 @@ class DBManager:
         cur.execute(sentence)
         query_rows = cur.fetchall()
         if (len(query_rows) == 0):
-            return {"elements":[]}
-        print(fields)
-        print(select_fields)
+            return None
         for element in query_rows:
             if fields is None:
                 for index, column in enumerate(model.values):
@@ -187,7 +184,7 @@ class DBManager:
         cur.execute(sentence)
         query_rows = cur.fetchall()
         if (len(query_rows) == 0):
-            return {"elements":[]}
+            return None
         for element in query_rows:
             if fields is None:
                 for index, column in enumerate(model.values):
@@ -206,7 +203,6 @@ class DBManager:
         # Create connection to database
         conn = self.create_connection()
         cur = conn.cursor()
-        
         try:
             for i in range(len(services)):
                 sentence = "INSERT INTO `{}` VALUES (%s, %s);".format(
@@ -222,8 +218,8 @@ class DBManager:
     def login(self, username, password):
         """Comprobe if exists the user  in the database
         and if the password is correct return a token"""
-        sentence = "SELECT * FROM Users WHERE user_id={}".format(
-                   username)
+        sentence = "SELECT * FROM `Users` WHERE \
+                   `user_id`=\'{}\'".format(username)
         # Create connection
         conn = self.create_connection()
         cur = conn.cursor()
@@ -251,3 +247,14 @@ class DBManager:
         for elem in fields:
             new_fields.append("{}_{}".format(tablename, elem))
         return ", ".join(new_fields)
+
+    def reviews_of_partner(self, partner_id):
+        """Show relevant information about all reviews
+        of a partner"""
+        sentence = "SELECT (username, "
+        return None
+    
+    def images_of_partner(self, partner_id):
+        """Return a list with all images
+        of the partner"""
+        pass

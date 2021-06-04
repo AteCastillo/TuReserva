@@ -22,9 +22,11 @@ def user_signup():
         for elem in user_values:
             values.append(json_request[elem])
         register = manager.insert_register('Users', values)
-        return jsonify(register)
+        if register is None:
+            return jsonify({'msg':'Error'}), 403
+        return jsonify({'msg':'OK'}), 201
     else:
-        return "Miss some value"
+        return jsonify({"msg":"Miss some value"}), 400
 
 # Get user info
 @user.route('/users/<user_id>', methods=['GET'])

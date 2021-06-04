@@ -23,8 +23,9 @@ CREATE TABLE IF NOT EXISTS `Categories` (
 CREATE TABLE IF NOT EXISTS `Partners` (
             partner_id VARCHAR(50) NOT NULL, partner_name VARCHAR(50) NOT NULL,
             partner_address VARCHAR(100) NOT NULL, partner_phone VARCHAR(20) NOT NULL, 
-            partner_username VARCHAR(50), partner_password VARCHAR(50), 
-            partner_wallet INT NOT NULL, category_id VARCHAR(50) NOT NULL,
+            partner_username VARCHAR(50), partner_email VARCHAR(50) NOT NULL UNIQUE,
+            partner_password VARCHAR(50) NOT NULL, 
+            partner_wallet INT DEFAULT 0, category_id VARCHAR(50) NOT NULL,
             PRIMARY KEY (partner_id),
             FOREIGN KEY (category_id) REFERENCES Categories(category_id));
 
