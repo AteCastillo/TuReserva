@@ -9,6 +9,10 @@ export default function validateInfo(values){
         errors.name = 'Name required';
     }
 
+    if(!values.description.trim()){
+        errors.description = 'Description required';
+    }
+
     if(!values.address.trim()){
         errors.address = 'Address required';
     }

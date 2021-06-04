@@ -22,6 +22,7 @@ CREATE TABLE IF NOT EXISTS `Categories` (
 -- Create Partners Table If not Exists
 CREATE TABLE IF NOT EXISTS `Partners` (
             partner_id VARCHAR(50) NOT NULL, partner_name VARCHAR(50) NOT NULL,
+            partner_description VARCHAR(255) NOT NULL,
             partner_address VARCHAR(100) NOT NULL, partner_phone VARCHAR(20) NOT NULL, 
             partner_username VARCHAR(50), partner_email VARCHAR(50) NOT NULL UNIQUE,
             partner_password VARCHAR(50) NOT NULL, 
