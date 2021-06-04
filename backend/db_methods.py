@@ -125,7 +125,7 @@ class DBManager:
         cur = conn.cursor()
         cur.execute(sentence)
         query_rows = cur.fetchone()
-        if len(query_rows) == 0:
+        if query_rows is None:
             return None
         if fields is None:
             for index, elem in enumerate(model.values):

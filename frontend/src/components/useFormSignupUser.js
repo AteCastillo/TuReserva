@@ -19,11 +19,25 @@ const useFormSignupUser = (callback,validateInfo) => {
             [e.target.name]: e.target.value
         });
     };
-    const handleSubmit = e => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         setErrors(validateInfo(values));
-        setIsSubmitting(true);
+        const res = await fetch(`http://localhost:5200/users`, {
+            method: 'POST',
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username:values.username,
+                email: values.email,
+                password: values.password,
+            })
+            
+        })
+        const data = await res.json()
+        console.log(data)
+        
     }; 
 
     useEffect(

@@ -5,6 +5,7 @@ import {Services} from "./components/Services"
 import {Navbar} from "./components/Navbar"
 import {Register} from './components/Register'
 import {Footer} from "./components/Footer"
+import {Categories} from './components/Categories'
 //import {Form1} from "./components/Signup1"
 import {SignupPartner} from './components/SignupPartner'
 import {SignupUser} from './components/SignupUser'
@@ -19,7 +20,9 @@ function App() {
          <Route path="/register" component={Register}/>
          <Route path='/signuppartner' component={SignupPartner}/>
          <Route path='/signupuser' component={SignupUser}/>
+         <Route path="/categories" component={Categories}/>
          <Route path="/" component={Services}/>
+         
        </Switch>
        <Footer/>
    </Router>
