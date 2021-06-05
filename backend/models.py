@@ -13,7 +13,7 @@ class ModelManager:
         elif model == 'Categories':
             self.values = ['id', 'name']
         elif model == 'Partners':
-            self.values = ['id', 'name', 
+            self.values = ['id', 'name', 'description',
                           'address', 'phone',
                           'username', 'email',
                           'password', 'wallet',

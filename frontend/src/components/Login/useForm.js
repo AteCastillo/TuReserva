@@ -1,15 +1,9 @@
 import {useState, useEffect} from 'react';
 
-const useForm = (callback,validateInfo) => {
+const useFormLogin = (callback,validateInfoLogin) => {
     const [values,setValues] = useState({
-        username:'',
-        name:'',
-        description:'',
-        address:'',
-        telephone:'',
-        email: '',
+        username:'', 
         password: '',
-        confirmpassword: ''
     });
 
 
@@ -26,22 +20,16 @@ const useForm = (callback,validateInfo) => {
     const handleSubmit = async e => {
         e.preventDefault();
 
-        setErrors(validateInfo(values));
+        setErrors(validateInfoLogin(values));
 
-        const res = await fetch(`http://localhost:5200/partners`, {
+        const res = await fetch(`http://localhost:5200/login`, {
             method: 'POST',
             headers:{
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
                 username:values.username,
-                name:values.name,
-                description:values.description,
-                address:values.address,
-                phone: values.telephone,
-                email: values.email,
-                password: values.password,
-                category_id: 'id-01'
+                password: values.password
             })
             
         })
@@ -49,7 +37,7 @@ const useForm = (callback,validateInfo) => {
         console.log(data)
     };
 
-
+/*
     useEffect(
         () => {
         if (Object.keys(errors).length === 0 && isSubmitting){
@@ -57,9 +45,9 @@ const useForm = (callback,validateInfo) => {
         }
     },
     [errors]
-    );
+    ); */
     return { handleChange, values, handleSubmit, errors };
 };
 
 
-export default useForm;
+export default useFormLogin;

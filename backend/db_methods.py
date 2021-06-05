@@ -125,7 +125,7 @@ class DBManager:
         cur = conn.cursor()
         cur.execute(sentence)
         query_rows = cur.fetchone()
-        if len(query_rows) == 0:
+        if query_rows is None:
             return None
         if fields is None:
             for index, elem in enumerate(model.values):
@@ -218,17 +218,20 @@ class DBManager:
     def login(self, username, password):
         """Comprobe if exists the user  in the database
         and if the password is correct return a token"""
-        sentence = "SELECT * FROM `Users` WHERE \
-                   `user_id`=\'{}\'".format(username)
+        sentence = "SELECT * FROM `{}` WHERE `{}`=\'{}\'".format(
+                   "Users", "user_username", username)
         # Create connection
         conn = self.create_connection()
         cur = conn.cursor()
+        print(sentence)
         try:
             cur.execute(sentence)
             query_rows = cur.fetchone()
             if query_rows is None:
                 return "Wrong Password"
             # Password in the database
+            print('a')
+            print(query_rows)
             db_pass = query_rows[2]
             if password == db_pass:
                 return "Token"
