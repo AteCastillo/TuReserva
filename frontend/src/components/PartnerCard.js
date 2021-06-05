@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const PartnerCard(props) => (
+export const PartnerInfo = (props) => (
     <>
     <div className="card" style={{width: '18rem'}}>
     <h5 className="card-title">Card title</h5>
