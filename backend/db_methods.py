@@ -145,15 +145,15 @@ class DBManager:
         print(sentence)
         print(fields)
         values = []
-        row = {}
         model = ModelManager(table)
         conn = self.create_connection()
         cur = conn.cursor()
         cur.execute(sentence)
         query_rows = cur.fetchall()
-        if (len(query_rows) == 0):
+        if query_rows is None:
             return None
         for element in query_rows:
+            row = {}
             if fields is None:
                 for index, column in enumerate(model.values):
                     row[column] = element[index]
@@ -161,7 +161,6 @@ class DBManager:
                 for index, column in enumerate(fields):
                     row[column] = element[index]
             values.append(row)
-            print(element)
         register = {"elements":values}
         self.close_connection(conn, cur)
         return register
@@ -176,18 +175,20 @@ class DBManager:
         sentence = "SELECT {} FROM `{}` WHERE `{}`=\'{}\';".format(
                     select_fields, table, self.__tables[for_table], id)
         values = []
-        row = {}
+      
         model = ModelManager(table)
         conn = self.create_connection()
         cur = conn.cursor()
         cur.execute(sentence)
         query_rows = cur.fetchall()
-        if (len(query_rows) == 0):
+        if query_rows is None:
             return None
         for element in query_rows:
+            row = {}
             if fields is None:
                 for index, column in enumerate(model.values):
                     row[column] = element[index]
+                values.append(row)
             else:
                 for index, column in enumerate(fields):
                     row[column] = element[index]

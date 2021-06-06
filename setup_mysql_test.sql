@@ -91,13 +91,17 @@ INSERT INTO Categories VALUES
 -- Create Partners(partner_id, partner_name, partner_address, partner_phone,
 --   partner_user, partner_password, partner_cash, category_id) 
 
+
 INSERT INTO Partners VALUES
-('id-01', 'company 01', 'address 01', '12121212', 
+('id-01', 'company 01', 'description','address 01', '12121212', 
 'company-user01', 'email2','password', 12350, 'id-01'), 
-('id-02', 'company 02', 'address 02', '12121212', 
+('id-02', 'company 02', 'description', 'address 02', '12121212', 
 'company-user02','email3', 'password', 14550, 'id-01'),
-('id-03', 'company 03', 'address 03', '12121212', 
-'company-user03', 'email4','password', 1250, 'id-02');
+('id-03', 'company 03', 'description','address 03', '12121212', 
+'company-user03', 'email4','password', 1250, 'id-02'),
+('id-04', 'company 21', 'description', 'address 01', '12121212', 
+'company-user01', 'email5','password', 12350, 'id-01');
+
 
 -- Create Services(service_id, service_name, service_description
 --          service_price, service_time, partner_id)

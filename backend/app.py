@@ -10,6 +10,9 @@ from services import service
 from reviews import review
 from orders import order
 from categories import category
+from os import getcwd, mkdir, path
+from werkzeug.utils import secure_filename
+
 
 app = Flask(__name__)
 app.register_blueprint(partner)
@@ -21,14 +24,14 @@ app.register_blueprint(category)
 CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
-app.config['SECRET_KEY'] = 'the quick brown fox jumps over the lazy   dog'
+app.config['SECRET_KEY'] = 'the quick brown fox jumps over the lazy,,dog'
 app.config['SWAGGER'] = {
-    'title': 'AirBnB clone Restful API',
+    'title': 'TuReserva Restful API',
     'uiversion': 3
 }
 Swagger(app)
 manager = DBManager()
-
+UPLOAD_FOLDER = '{}/upload/'.format(getcwd())
 
 @app.route('/login', methods=['POST'], strict_slashes=False)
 @cross_origin(supports_credentials=True)
@@ -40,9 +43,20 @@ def login():
     return jsonify({'msg':'bad request'}), 403
 
 
-@app.route('/upload', methods=['POST'], strict_slashes=False)
-def upload_image():
-    pass
+@app.route('/upload/<partner_id>', methods=['POST'], strict_slashes=False)
+def upload_image(partner_id):
+    """In charge of upload images to folder upload"""
+    target=path.join(UPLOAD_FOLDER, partner_id)
+    print(target)
+    # If not exists this folder create it
+    if not path.isdir(target):
+        mkdir(target)
+    file = request.files['file'] 
+    filename = secure_filename(file.filename)
+    destination="/".join([target, filename])
+    file.save(destination)
+    response = {"msg": "ok"}
+    return jsonify(response)
 
 
 if __name__ == '__main__':

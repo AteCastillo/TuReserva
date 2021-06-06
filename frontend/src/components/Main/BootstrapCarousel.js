@@ -5,15 +5,15 @@ export class BootstrapCarousel extends Component {
     render() {  
         return (  
             <div>  
-                <div class='container-fluid' >
-                <div className="row title" style={{ marginBottom: "10px" }} >
+                <div className='container-fluid carousel-main' >
+                <div className="row title" >
 
                 </div> 
                 </div> 
                 <div className='container-fluid' >
                 <Carousel> 
                 <Carousel.Item style={{'height':"300px"}} >
-                <img style={{'height':"300px"}}
+                <img style={{'height':"300px", 'width':'100%'}}
                 className="d-block w-100" 
                 src={'https://d2vj71og9gdu4k.cloudfront.net/WEB/banners/1614851212.jpg'} 
                 alt= "offer 1" /> 

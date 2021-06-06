@@ -20,7 +20,7 @@ def all_categories():
 @swag_from('documentation/partners/all_partners.yml')
 def all_partners(category_id):
     """Return all partners information"""
-    fields = ('name', 'address', 'phone', 'description', 'id')
+    fields = ('id', 'name', 'description','address', 'phone')
     all_partners = manager.select_all_for('Partners',
     'Categories', category_id, fields)
     return jsonify(all_partners)
