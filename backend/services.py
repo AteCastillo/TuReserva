@@ -31,12 +31,12 @@ def create_service(partner_id):
         return jsonify({"msg":"Miss some value"}), 400
 
 # Get Service
-@service.route('/services/<service_id>', methods=['GET'],
+@service.route('/services/<partner_id>', methods=['GET'],
            strict_slashes=False)
 @swag_from('documentation/services/get_services.yml')
-def service_get(service_id):
+def service_get(partner_id):
     """Return Information about a service"""
-    service = manager.select_register_id('Services', service_id)
+    service = manager.select_all_for('Services','Partners', partner_id)
     if service is None:
         return jsonify({'msg':'Not found'}), 404
     return jsonify(service), 200

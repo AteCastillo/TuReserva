@@ -10,26 +10,27 @@ export const Categories = (props) => {
         () => {
             const getData = async () => {
                const res = await fetch(`http://localhost:5200/categories/${id}`);
-               console.log(`http://localhost:5200/categories/${id}`)
                 const json = await res.json();
-
                 json.elements.forEach(async (el) => {
-                     console.log(el)
+                    //let res = await fetch(el.images[0]);
+                    //let 
                     let partner = {
                         name: el.name,
                         address: el.address,
                         phone: el.phone,
                         description: el.description,
-                        id: el.id
-                    };
+                        id: el.id,
+                        image: el.images[0]
+                        
+                    }
                     setPartners((partners) => [...partners, partner]);
                 })
-               
             }
             getData()
         }, []);
+
         if (partners.length !== 0) {
-            console.log(partners)
+            //console.log(partners[0].image)
         }
     return (
     <div className='category-container'>
@@ -40,8 +41,10 @@ export const Categories = (props) => {
                 <PartnerInfo name={el.name} 
                 address={el.address} 
                 phone={el.phone} 
-                key={el.id}
-                description={el.description}/>
+                id={el.id}
+                description={el.description}
+                image={el.image}
+                key={el.id}/>
             )) 
            
         )}

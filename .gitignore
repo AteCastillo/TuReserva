@@ -4,3 +4,5 @@ scripts/flow/*/.flowconfig
 *~
 *.pyc
 todo
+upload
+upload/*
