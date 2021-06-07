@@ -1,4 +1,4 @@
-from flask import Flask, json, jsonify,request
+from flask import Flask, json, jsonify,request, send_file
 from flask_cors import CORS, cross_origin
 from flasgger import Swagger
 from db_methods import DBManager
@@ -12,6 +12,8 @@ from orders import order
 from categories import category
 from os import getcwd, mkdir, path
 from werkzeug.utils import secure_filename
+from PIL import Image
+import base64
 
 
 app = Flask(__name__)
@@ -47,7 +49,6 @@ def login():
 def upload_image(partner_id):
     """In charge of upload images to folder upload"""
     target=path.join(UPLOAD_FOLDER, partner_id)
-    print(target)
     # If not exists this folder create it
     if not path.isdir(target):
         mkdir(target)
@@ -58,6 +59,12 @@ def upload_image(partner_id):
     response = {"msg": "ok"}
     return jsonify(response)
 
+@app.route('/get_image/<partner_id>/<image_route>', methods=['GET'], strict_slashes=False)
+def get_image(partner_id, image_route):
+    """Return an image"""
+    filename = "{}/{}/{}".format(UPLOAD_FOLDER,
+               partner_id, image_route)
+    return send_file(filename)
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port='5200', debug='True')

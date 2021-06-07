@@ -21,6 +21,6 @@ def all_categories():
 def all_partners(category_id):
     """Return all partners information"""
     fields = ('id', 'name', 'description','address', 'phone')
-    all_partners = manager.select_all_for('Partners',
+    all_partners = manager.select_partner_categories('Partners',
     'Categories', category_id, fields)
     return jsonify(all_partners)

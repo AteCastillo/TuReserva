@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 from models import ModelManager
-from os import getcwd
+from os import getcwd, listdir
 import json
 import MySQLdb
 from uuid import uuid4
@@ -192,7 +192,7 @@ class DBManager:
             else:
                 for index, column in enumerate(fields):
                     row[column] = element[index]
-            values.append(row)
+                values.append(row)
         register = {"elements":values}
         self.close_connection(conn, cur)
         return register
@@ -239,6 +239,43 @@ class DBManager:
             return "Something wrong"
         finally:
             self.close_connection(conn, cur)
+        
+    def select_partner_categories(self, table, for_table, id, fields=None):
+        """This Function recieves a name of a table (table)
+        and the table that connect with foreign key(for_table)
+        with id (id)
+        and returns all values in the format dict
+        {elements:[{row1},{row2}]}"""
+        select_fields = "*" if fields is None else self.fields_corrector(table, fields)
+        sentence = "SELECT {} FROM `{}` WHERE `{}`=\'{}\';".format(
+                    select_fields, table, self.__tables[for_table], id)
+        values = []
+      
+        model = ModelManager(table)
+        conn = self.create_connection()
+        cur = conn.cursor()
+        cur.execute(sentence)
+        query_rows = cur.fetchall()
+        if query_rows is None:
+            return None
+        for element in query_rows:
+            row = {}
+            if fields is None:
+                for index, column in enumerate(model.values):
+                    row[column] = element[index]
+                images = self.list_all_images(row['id'])
+                row['images'] = images
+                values.append(row)
+            else:
+                for index, column in enumerate(fields):
+                    row[column] = element[index]
+                images = self.list_all_images(row['id'])
+                row['images'] = images
+                values.append(row)
+        register = {"elements":values}
+        self.close_connection(conn, cur)
+        return register
+       
 
     def fields_corrector(self, table, fields):
         """Convert fields passed for parameters in 
@@ -261,3 +298,15 @@ class DBManager:
         """Return a list with all images
         of the partner"""
         pass
+
+    def list_all_images(self, partner_id):
+        """Return a list with the routes of
+        all images in the folder"""
+        mypath = "{}/upload/{}/".format(getcwd(), partner_id)
+        images = listdir(mypath)
+        routes = []
+        for image in images:
+            routes.append("http://127.0.0.1:5200/get_image/{}/{}".format(
+               partner_id, image))
+        return routes
+        
