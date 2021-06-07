@@ -6,6 +6,7 @@ from flask import Blueprint, jsonify, request
 partner = Blueprint('partner', __name__)
 manager = DBManager()
 
+
 # Partner SignUp
 @partner.route('/partners', methods=['POST'],
            strict_slashes=False)
@@ -28,6 +29,7 @@ def partner_signup():
         return jsonify({'msg':'OK'}), 201
     else:
         return jsonify({"msg":"Miss some value"}), 400
+
 
 @partner.route('/partners/<partner_id>', methods=['GET'],
            strict_slashes=False)

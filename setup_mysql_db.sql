@@ -56,13 +56,6 @@ CREATE TABLE IF NOT EXISTS `Reviews` (
             FOREIGN KEY ( user_id ) REFERENCES Users(user_id),
             FOREIGN KEY ( partner_id ) REFERENCES Partners(partner_id));
 
--- Create Images Table If not Exists
-CREATE TABLE IF NOT EXISTS `Images` (
-            image_id VARCHAR(50) NOT NULL, image_uri VARCHAR(150) NOT NULL,
-            partner_id VARCHAR(50) NOT NULL,
-            PRIMARY KEY ( image_id ),
-            FOREIGN KEY ( partner_id ) REFERENCES Partners(partner_id));
-
 -- Create Orders_Services Table If not Exists (N to N Table)
 CREATE TABLE IF NOT EXISTS `Orders_Services` (
             order_id VARCHAR(50) NOT NULL,
