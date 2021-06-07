@@ -5,12 +5,12 @@ export class BootstrapCarousel extends Component {
     render() {  
         return (  
             <div>  
-                <div className='container-fluid carousel-main' >
+                <div className='container-fluid'>
                 <div className="row title" >
 
                 </div> 
                 </div> 
-                <div className='container-fluid' >
+                <div /*className='container-fluid'*/>
                 <Carousel> 
                 <Carousel.Item style={{'height':"300px"}} >
                 <img style={{'height':"300px", 'width':'100%'}}

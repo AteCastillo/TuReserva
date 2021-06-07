@@ -7,10 +7,6 @@
     align-items: center;
 }
 
-.carousel-main{
-    align-self: flex-start;
-}
-
 .main-categories{
     width:50%;
     display:flex;

@@ -1,3 +1,7 @@
 .container-fluid{
     background-color: #28292b;
 }
+
+.form-control{
+    margin-left: 30px;
+}
