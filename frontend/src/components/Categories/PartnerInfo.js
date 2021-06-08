@@ -15,7 +15,6 @@ export const PartnerInfo = ({id, address, name, phone, description, image}) => {
         <ul className="list-group list-group-flush">
             <li className="list-group-item">{address}</li>
             <li className="list-group-item ">Phone: {phone}</li>
-            <li className="list-group-item">Vestibulum at eros</li>
         </ul>
         <div className="card-body card-body-partner">
             <Link to={{pathname: "/partner", name: name, 
