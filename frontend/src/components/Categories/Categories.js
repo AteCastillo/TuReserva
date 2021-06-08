@@ -12,15 +12,13 @@ export const Categories = (props) => {
                const res = await fetch(`http://localhost:5200/categories/${id}`);
                 const json = await res.json();
                 json.elements.forEach(async (el) => {
-                    //let res = await fetch(el.images[0]);
-                    //let 
                     let partner = {
                         name: el.name,
                         address: el.address,
                         phone: el.phone,
                         description: el.description,
                         id: el.id,
-                        image: el.images[0]
+                        image: el.images
                         
                     }
                     setPartners((partners) => [...partners, partner]);

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {ServiceInfo} from "./ServiceInfo"
 import {Reservation} from "./Reservation";
+import {CarouselPartner} from "./CarouselPartner";
 
 export const PartnerMain = (props) => {
     const [services, setServices] = useState([])
@@ -26,7 +27,6 @@ export const PartnerMain = (props) => {
         setSelect(temp);
     };
 
-
     useEffect(
         () => {
             const getData = async () => {
@@ -47,29 +47,36 @@ export const PartnerMain = (props) => {
         }, []);
     return (
         <>
-        <h2>Partner {elems.name}</h2>
-        <p> address: {elems.address}</p>
-        <p> Phone: {elems.phone}</p>
-        <p> Description: {elems.description}</p>
-        <div className='category-container'>
-        {services.length === 0 ? (
-            <h2>cargando</h2>
-        ) : (
-            services.map((el) => (
-                <div>
-                    <ServiceInfo name={el.name}
-                    description={el.description}
-                    time={el.time}
-                    price={el.price}
-                    id={el.id}
-                    add={add}
-                    del={del}
-                    select={select}/>
-                </div>
-            )) 
-        )}
+        <div className="partner-container">
+            <CarouselPartner images={elems.images}/>
+            <h2>Partner {elems.name}</h2>
+            <p> address: {elems.address}</p>
+            <p> Phone: {elems.phone}</p>
+            <p> Description: {elems.description}</p>
+            <div className='category-container'>
+            {services.length === 0 ? (
+                <h2>cargando</h2>
+            ) : (
+                services.map((el) => (
+                    <div className="services-container">
+                        <ServiceInfo className="service"
+                        name={el.name}
+                        description={el.description}
+                        time={el.time}
+                        price={el.price}
+                        id={el.id}
+                        add={add}
+                        del={del}
+                        select={select}
+                        />
+                    </div>
+                )) 
+            )}
+        </div>
+  
     </div>
-    {total !== 0 && <Reservation total={total} quantity={quantity}/>}
+    {total !== 0 && <Reservation className="reservation" 
+                        total={total} quantity={quantity}/>}
     </>
     )
 }
