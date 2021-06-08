@@ -12,6 +12,7 @@ import {SignupUser} from './components/SignupUser'
 import {PartnerMain} from "./components/Partners/PartnerMain"
 import {ServiceForm} from './components/ServicesForm/ServiceForm'
 import Main from "./components/Partners/Test"
+import {OrderMain} from './components/Order/OrderMain'
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
          <Route path="/partner" component={PartnerMain}/>
          <Route path='/service' component={ServiceForm}/>
          <Route path="/test" component={Main}/>
+         <Route path="/order" component={OrderMain}/>
          <Route path="/" component={Services}/>
          
          

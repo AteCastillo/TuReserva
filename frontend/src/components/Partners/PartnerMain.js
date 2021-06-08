@@ -9,22 +9,27 @@ export const PartnerMain = (props) => {
 
     // Comunication with child component
     const [select, setSelect] = useState([])
+    const [names, setNames] = useState([])
     const [total, setTotal] = useState(0)
     const [quantity, setQuantity] = useState(0)
 
     const contar = (cant) => setQuantity(quantity + cant)
-    const add = (price, id) => {
+    const add = (price, id, name) => {
         setTotal(total + price);
-        contar(1)
+        contar(1);
         setSelect(select => [...select, id]);
+        setNames(names => [...names, name])
     };
     const del = (price, id) => {
         const temp = [...select];
+        const temp2 = [...names];
         const index = select.indexOf(id)
         temp.splice(index, 1);
+        temp2.splice(index, 1);
         setTotal(total - price);
-        contar(-1)
+        contar(-1);
         setSelect(temp);
+        setNames(temp2);
     };
 
     useEffect(
@@ -76,7 +81,8 @@ export const PartnerMain = (props) => {
   
     </div>
     {total !== 0 && <Reservation className="reservation" 
-                        total={total} quantity={quantity}/>}
+                        total={total} quantity={quantity}
+                        services={select} names={names}/>}
     </>
     )
 }

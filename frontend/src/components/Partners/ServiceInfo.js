@@ -11,10 +11,10 @@ export const ServiceInfo = ({name, description, time,
             <p>{price}</p>
         
          {select.includes(id) && select.length > 0 ? (
-            <button onClick={(e) => del(price, id)}> - </button>
+            <button onClick={(e) => del(price, id, name)}> - </button>
         ) : (
             
-            <button onClick={(e) => add(price, id)}> + </button>
+            <button onClick={(e) => add(price, id, name)}> + </button>
         )}
         
         </>

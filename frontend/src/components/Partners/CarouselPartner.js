@@ -20,10 +20,7 @@ const responsive = {
   }
 };
 export const CarouselPartner = (props) => {
-
-  console.log(props.images);
   return (
-
   <Carousel
   swipeable={true}
   draggable={false}
