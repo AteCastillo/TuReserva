@@ -108,7 +108,6 @@ const FormSignup = ({ submitForm }) => {
                 {errors.confirmpassword && <p>{errors.confirmpassword}</p>}
            </div>
            <button className='form-imput-buttom' type="submit">Sign up</button>
-           
            </form>
        </div>
     );

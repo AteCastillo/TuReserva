@@ -1,10 +1,10 @@
-.form-container {
+.user-container {
     margin: 100px auto;
     width: 1000px;
     box-shadow: 0 5px 8px 0 rgba(196, 82, 82, 0.2), 0 7px 20px 0 rgba(204, 189, 189, 0.2);
     position: relative;
     border-radius: 10px;
-    height: 650px;
+    height: 650px !important;
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
@@ -73,11 +73,15 @@
     align-items: center;
   }
 
-  .form h2 {
+  .form h1 {
     font-size: 14px;
     color: #fff;
     text-align: start;
     width: 80%;
+    text-transform: lowercase;
+  }
+  .form h1::first-letter{
+    text-transform: capitalize;
   }
  
   
@@ -141,9 +145,9 @@
   }
   
   .form-imput-login {
-    font-size: 2.5rem;
+    font-size: 1rem !important;
     margin-top: 10px;
-    color: #fff;
+    color: rgb(240, 231, 231) !important;
     width: 80%;
     text-align: center;
   }

@@ -11,7 +11,7 @@ const FormLogin = ({ submitForm }) => {
        <div className="form-content-right">
            <form className="form" onSubmit={handleSubmit} noValidate>
                <h1>Welcome back!</h1>
-               <h2> Create your account by filling out the information bellow </h2>
+               <h2> To get in fill out the information bellow </h2>
             <div className='form-imputs'>
                 <label className='form-label'>Username</label>
                 <input
@@ -37,7 +37,9 @@ const FormLogin = ({ submitForm }) => {
 
            </div>
            <button className='form-imput-buttom' type="submit">Log in</button>
-           
+           <span className='form-input-login'>
+           Don't have an account?  Create one <a href='/#'>here</a>
+           </span>
            </form>
        </div>
     );
