@@ -28,7 +28,20 @@
     border-radius: 10px 0 0 10px;
     position: relative;
   }
-  
+  .form-content-left h1{
+      color: #01bcd4;
+      margin-top: 40px;
+     
+      margin-right: 150px;
+      margin-left: 80px;
+      font-size: 1.5rem;
+  }
+  .form-content-left p {
+    text-align: justify;
+    margin-top: 20px;
+  margin-right: 100px;
+  margin-left: 80px;
+  }
   .form-img {
     width: 80%;
     height: 80%;

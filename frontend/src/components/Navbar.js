@@ -6,7 +6,7 @@ import logo from './logo3.png';
 //import './Navbar.css';
 import './logo.css';
 import "./Main/Main.css"
-import { MDBRow, MDBCol, MDBIcon } from "mdbreact";
+import { MDBIcon } from "mdbreact";
 
 
 
@@ -27,10 +27,11 @@ export const Navbar = (props) => (
       ) : (
         <div className="login-navbar">
             
-            <MDBIcon icon="sign-in-alt"/>
-        <Link className="form-login" aria-current="page" to="/login">Log in</Link>
+        
+        <MDBIcon icon="sign-in-alt"/>
+        <Link className="form-login" aria-current="page" to="/login">Login</Link>
         <MDBIcon icon="user-plus" />
-        <Link className="form-signupuser" aria-current="page" to="/signupuser">Sing up</Link>
+        <Link className="form-signupuser" aria-current="page" to="/signupuser">Sign up</Link>
         </div>
       )}
       

@@ -13,6 +13,12 @@
     border: 3px solid #01bcd4  !important;
 }
 
+.card-img-top{
+    max-width:100%;
+    height:auto;
+    display: block;
+}
+
 .button-partner{
     display: flex;
     flex-direction: row;
