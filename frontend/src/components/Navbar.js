@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import './Navbar.css';
 //import {Logout} from './Logout';
-import logo from './logo2.png';
+import logo from './logo3.png';
 //import './Navbar.css';
 import './logo.css';
 import "./Main/Main.css"
@@ -10,7 +10,7 @@ import "./Main/Main.css"
 
 
 export const Navbar = (props) => (
-    <div className="navbar-main cyan darken-3">
+    <div className="navbar-main cyan">
       <div className="container-navbar">
       <Link to="/"> <img src={logo} className="navbar-logo" alt="logo" /></Link>
       <label htmlFor="service"></label>

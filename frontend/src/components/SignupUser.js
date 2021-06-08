@@ -13,7 +13,7 @@ export const SignupUser = () => {
     <div className='user-container'>
 
         <div className='form-content-left'>
-            <img className='form-img' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ16DY2L9Lq_VmGBKwcAw9RLmRrtPn-X2Fdvw&usqp=CAU' alt='new'></img>
+            <img className='form-img' src='https://cdn0.iconfinder.com/data/icons/click-linear-outline/300/1520733Untitled-3-512.png' alt='new'></img>
         </div>
             {/* if is not submitted, display form, else success:*/}
             {!isSubmitted ? (<FormSignupUser submitForm= {submitForm}/> ) : (<FormSuccessUser/>)}

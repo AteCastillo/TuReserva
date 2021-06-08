@@ -22,7 +22,7 @@ export const PartnerInfo = ({id, address, name, phone, description, image}) => {
             address: address, phone: phone,
             description: description, id:id,
             images:image}} className="button-partner 
-            cyan darken-3 text-center">
+            cyan text-center">
                 See More</Link>
         </div>
         </div>   
