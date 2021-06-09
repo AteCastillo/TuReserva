@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import {ServiceInfo} from "./ServiceInfo"
 import {Reservation} from "./Reservation";
 import {CarouselPartner} from "./CarouselPartner";
+import { SliderData } from './SliderData';
+import ImageSlider from './ImageSlider';
 import "./Partner.css"
 
 export const PartnerMain = (props) => {
@@ -55,9 +57,14 @@ export const PartnerMain = (props) => {
             }
             getData()
         }, []);
+        console.log(elems.images)
     return (
         <>
         <div className="partner-container">
+            {/*<CarouselPartner images={elems.images}/>*/}
+            <CarouselPartner images={elems.images}/>
+           
+            {/*<ImageSlider slides={elems.images} />*/}
             <div className="partner-info">
             <h1 className="partner-name">{elems.name}</h1>
             <div className="partner-description">

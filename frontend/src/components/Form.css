@@ -100,10 +100,10 @@
     color: #fff;
     text-align: start;
     width: 80%;
-    text-transform: lowercase;
+    text-transform: lowercase !important;
   }
   .form h2::first-letter{
-    text-transform: capitalize;
+    text-transform: capitalize !important;
   }
   
   .form-imputs {
@@ -154,4 +154,37 @@
     color: #c72b2b;
     font-weight: 800;
   }
+
+  @media screen and (max-width: 1000px){
+	form{
+		width: 190px;
+	}
+
+	.form-content-right h2{
+        font-size: 2.4rem;
+        margin: 8px 0;
+	}
+
+	.form-imputs img{
+		width: 400px;
+	}
+}
+  @media screen and (max-width: 900px){
+	.form-container{
+		grid-template-columns: 1fr;
+        width: 500px;
+	}
+
+	.form-content-left{
+		display: none;
+	}
+
+	.form-img{
+		display: none;
+	}
+
+	.form-content-rigth{
+		justify-content: center;
+	}
+}
   
