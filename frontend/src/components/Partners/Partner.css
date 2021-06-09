@@ -11,25 +11,82 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
+}
+
+.partner-name{
+    font-weight: 900;
+    font-size:3.2rem;
+    padding:10px;
+    
+}
+
+.partner-description{
+    font-size:1.2rem;
+}
+
+.partner-info{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .services-container{
     width: 70%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
+    box-shadow:  2px 2px 2px 1px rgba(0, 0, 0, 0.3);
+    height:150px;
+}
+
+.info-services{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin-left:20px;
+}
+
+.name-services{
+    font-weight: bolder;
+}
+
+.price-services{
+    font-weight: 700;
+
+}
+
+.button-services{
+    margin-right: 20px;
+    border:none;
+    border-radius: 50%;
+    background-color: #40E0D0;
+    color:white !important;
+    width:40px;
+    height: 40px;
+    font-weight: bolder;
+    font-size:1.5rem;
+}
+
+.checked{
+    border-left:5px solid teal;
 }
 
 .reservation{
-    position: absolute;
+    position: sticky;
     bottom:0;
 }
 
 .service{
     display: flex;
+    flex-direction: column;
+    border:10px solid black;
 }
+
+
 .carousel-item-partner{
     width: 30%;
     height: 100%;

@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {ServiceInfo} from "./ServiceInfo"
 import {Reservation} from "./Reservation";
 import {CarouselPartner} from "./CarouselPartner";
+import "./Partner.css"
 
 export const PartnerMain = (props) => {
     const [services, setServices] = useState([])
@@ -19,6 +20,7 @@ export const PartnerMain = (props) => {
         contar(1);
         setSelect(select => [...select, id]);
         setNames(names => [...names, name])
+        document.getElementById(id).className = 'services-container checked';
     };
     const del = (price, id) => {
         const temp = [...select];
@@ -30,6 +32,9 @@ export const PartnerMain = (props) => {
         contar(-1);
         setSelect(temp);
         setNames(temp2);
+        const div = document.querySelector(id);
+        document.getElementById(id).className = 'services-container';
+
     };
 
     useEffect(
@@ -53,16 +58,19 @@ export const PartnerMain = (props) => {
     return (
         <>
         <div className="partner-container">
-            <h1>{elems.name}</h1>
-            <p> address: {elems.address}</p>
-            <p> Phone: {elems.phone}</p>
-            <p> Description: {elems.description}</p>
+            <div className="partner-info">
+            <h1 className="partner-name">{elems.name}</h1>
+            <div className="partner-description">
+            <p> {elems.description}</p>
+            <p> <i class="fa fa-phone" aria-hidden="true"></i>   {elems.phone}</p>
+            <p><i class="fas fa-map-marker-alt"></i>  {elems.address}</p>
+            </div>
+            </div>
             <div className='category-container'>
             {services.length === 0 ? (
                 <h2>cargando</h2>
             ) : (
                 services.map((el) => (
-                    <div className="services-container">
                         <ServiceInfo className="service"
                         name={el.name}
                         description={el.description}
@@ -73,7 +81,6 @@ export const PartnerMain = (props) => {
                         del={del}
                         select={select}
                         />
-                    </div>
                 )) 
             )}
         </div>
