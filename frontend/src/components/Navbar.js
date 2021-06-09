@@ -1,11 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import './Navbar.css';
-//import {Logout} from './Logout';
 import logo from './logo2.png';
-//import './Navbar.css';
 import './logo.css';
 import "./Main/Main.css"
+import icon from './Main/user.png'
 
 
 
@@ -22,7 +21,10 @@ export const Navbar = (props) => (
       </div>
      
       {props.islogged ? (
-        <p>Logged</p>
+        <div>
+        <img src={icon} className="icon-user"/>
+        <p className="icon-msg">Welcome</p>
+        </div>
       ) : (
         <div className="login-navbar">
         <Link className="form-login" aria-current="page" to="/login">Log in</Link>

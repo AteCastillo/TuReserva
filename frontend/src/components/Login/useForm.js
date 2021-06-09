@@ -8,10 +8,8 @@ const useFormLogin = (callback,validateInfoLogin) => {
 
 
     const [errors, setErrors] = useState({});
-    // false because is not submitted yet:
-    const [isSubmitting, setIsSubmitting] = useState (false);
 
-    const handleChange = e => {
+    const handleChange = (e) => {
         setValues({
             ...values,
             [e.target.name]: e.target.value
@@ -34,7 +32,9 @@ const useFormLogin = (callback,validateInfoLogin) => {
             
         })
         const data = await res.json()
-        console.log(data)
+        if (data !== "Wrong Password"){
+            localStorage.setItem('tureserva_token', data)
+        }
     };
 
 /*
