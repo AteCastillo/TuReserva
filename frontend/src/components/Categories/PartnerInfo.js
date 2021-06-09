@@ -7,15 +7,22 @@ export const PartnerInfo = ({id, address, name, phone, description, image}) => {
         <div className="card p-2 m-4 partner-card" style={{width: '400px', height: '600px'}}>
         <h3 className="card-title font-weight-bold text-center">{name}</h3>
         <figure>
-        <img className="card-img-top" src={`${image[0]}`}  alt="Card image cap" />
+        <img className="card-img-partner" src={`${image[0]}`}  alt="Card image cap" />
         </figure>
+        <div className="info-partner">
         <div className="card-body">
             <p className="card-text">{description}</p>
         </div>
-        <ul className="list-group list-group-flush">
+        <ul className="list-group list-group-flush info-partner">
+            <li className="list-group-item card-text">
+            Esta es una larga larga description equisde
+            Esta es una larga larga description equisde
+            Esta es una larga larga description equisde
+            </li>
             <li className="list-group-item">{address}</li>
             <li className="list-group-item ">Phone: {phone}</li>
         </ul>
+        
         <div className="card-body card-body-partner">
             <Link to={{pathname: "/partner", name: name, 
             address: address, phone: phone,
@@ -23,6 +30,7 @@ export const PartnerInfo = ({id, address, name, phone, description, image}) => {
             images:image}} className="button-partner 
             cyan text-center">
                 See More</Link>
+        </div>
         </div>
         </div>   
         

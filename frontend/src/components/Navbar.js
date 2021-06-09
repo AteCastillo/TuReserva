@@ -4,6 +4,7 @@ import './Navbar.css';
 //import {Logout} from './Logout';
 import logo from './logo3.png';
 //import './Navbar.css';
+import icon from './Main/user.png'
 import './logo.css';
 import "./Main/Main.css"
 import { MDBIcon } from "mdbreact";
@@ -16,7 +17,7 @@ export const Navbar = (props) => (
       <label htmlFor="service"></label>
       <div className="search-navbar">
       <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input>
+        <input class="form-control search-navbar mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input>
      </form>
       </div>
       </div>

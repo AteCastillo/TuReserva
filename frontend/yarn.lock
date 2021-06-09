@@ -4116,6 +4116,11 @@ data-urls@^2.0.0:
     whatwg-mimetype "^2.3.0"
     whatwg-url "^8.0.0"
 
+date-fns@^2.22.1:
+  version "2.22.1"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.22.1.tgz#1e5af959831ebb1d82992bf67b765052d8f0efc4"
+  integrity sha512-yUFPQjrxEmIsMqlHhAhmxkuH769baF21Kk+nZwZGyrMoyLA+LugaQtC0+Tqf9CBUUULWwUJt6Q5ySI3LJDDCGg==
+
 debounce@^1.1.0:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/debounce/-/debounce-1.2.1.tgz#38881d8f4166a5c5848020c11827b834bcb3e0a5"
@@ -9576,6 +9581,16 @@ react-event-listener@^0.6.2, react-event-listener@^0.6.6:
     "@babel/runtime" "^7.2.0"
     prop-types "^15.6.0"
     warning "^4.0.1"
+
+react-gallery-carousel@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/react-gallery-carousel/-/react-gallery-carousel-0.2.2.tgz#4fb1dca1ee11d1cc9313bd5288e6e9267df8cb57"
+  integrity sha512-V3/hZ8Zzcepkq6Cr3xJJfrdijmWdLUsYwK0sjgH/7RQbPw04BWjaIgcZ91X9kFPHDDEgEszt1kecz7W3YVZMuA==
+
+react-icons@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.2.0.tgz#6dda80c8a8f338ff96a1851424d63083282630d0"
+  integrity sha512-rmzEDFt+AVXRzD7zDE21gcxyBizD/3NqjbX6cmViAgdqfJ2UiLer8927/QhhrXQV7dEj/1EGuOTPp7JnLYVJKQ==
 
 react-image-lightbox@5.1.1:
   version "5.1.1"

@@ -101,7 +101,14 @@
       font-size: 1.1rem;
     }
     .search-input{
-        margin-left: 20px;
+        margin-left: 10px;
+    }
+    .category-icon-img{
+        height: 120px;
+    }
+
+    .search-navbar{
+        width: 180px;
     }
   }
 

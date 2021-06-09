@@ -53,8 +53,7 @@ export const PartnerMain = (props) => {
     return (
         <>
         <div className="partner-container">
-            <CarouselPartner images={elems.images}/>
-            <h2>Partner {elems.name}</h2>
+            <h1>{elems.name}</h1>
             <p> address: {elems.address}</p>
             <p> Phone: {elems.phone}</p>
             <p> Description: {elems.description}</p>
