@@ -10,7 +10,13 @@
 
 .partner-card{
     margin:50px;
-    border: 3px solid #03a693  !important;
+    border: 3px solid #01bcd4  !important;
+}
+
+.card-img-top{
+    max-width:100%;
+    height:auto;
+    display: block;
 }
 
 .button-partner{
@@ -21,7 +27,7 @@
     width: 70%;
     height: 45px;
     padding: 5px;
-    color: rgb(198, 216, 216);
+    color: white;
     font-weight: bold;
     border-radius: 5px;
     font-size: large;

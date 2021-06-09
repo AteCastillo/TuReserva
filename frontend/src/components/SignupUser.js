@@ -10,13 +10,10 @@ export const SignupUser = () => {
     }
     return (
     <>
-    <div className='form-container'>
-        <span className='close-btn'>×</span>
+    <div className='user-container'>
+
         <div className='form-content-left'>
-            <h1>Already have an account?</h1>
-            <span className='form-imput-login'>
-               Login <a href="#">here</a>
-            </span>
+            <img className='form-img' src='https://cdn0.iconfinder.com/data/icons/click-linear-outline/300/1520733Untitled-3-512.png' alt='new'></img>
         </div>
             {/* if is not submitted, display form, else success:*/}
             {!isSubmitted ? (<FormSignupUser submitForm= {submitForm}/> ) : (<FormSuccessUser/>)}

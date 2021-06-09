@@ -45,7 +45,7 @@ const FormServices = ({ submitForm }) => {
                     className='form-imput'
                     type='text'
                     name='price'
-                    placeholder='Enter service price'
+                    placeholder='Enter service price in pesos'
                     value={values.price}
                     onChange={handleChange}
                 />
@@ -58,7 +58,7 @@ const FormServices = ({ submitForm }) => {
                     className='form-imput'
                     type='text'
                     name='duration'
-                    placeholder='Enter service duration'
+                    placeholder='Enter service duration in minutes'
                     value={values.duration}
                     onChange={handleChange}
                 />

@@ -1,15 +1,16 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import './Navbar.css';
-import logo from './logo2.png';
+//import {Logout} from './Logout';
+import logo from './logo3.png';
+//import './Navbar.css';
 import './logo.css';
 import "./Main/Main.css"
-import icon from './Main/user.png'
-
+import { MDBIcon } from "mdbreact";
 
 
 export const Navbar = (props) => (
-    <div className="navbar-main cyan darken-3">
+    <div className="navbar-main cyan">
       <div className="container-navbar">
       <Link to="/"> <img src={logo} className="navbar-logo" alt="logo" /></Link>
       <label htmlFor="service"></label>
@@ -27,8 +28,12 @@ export const Navbar = (props) => (
         </div>
       ) : (
         <div className="login-navbar">
-        <Link className="form-login" aria-current="page" to="/login">Log in</Link>
-        <Link className="form-signupuser" aria-current="page" to="/signupuser">Sing up</Link>
+            
+        
+        <MDBIcon icon="sign-in-alt"/>
+        <Link className="form-login" aria-current="page" to="/login">Login</Link>
+        <MDBIcon icon="user-plus" />
+        <Link className="form-signupuser" aria-current="page" to="/signupuser">Sign up</Link>
         </div>
       )}
       

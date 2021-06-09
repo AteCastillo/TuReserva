@@ -10,7 +10,7 @@
 
 @media (prefers-reduced-motion: no-preference) {
     .navbar-logo {
-        animation: navbar-logo infinite 30s linear;
+        animation: navbar-logo infinite 50s linear;
     }
 }
 

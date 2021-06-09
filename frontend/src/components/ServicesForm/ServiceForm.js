@@ -11,12 +11,9 @@ export const ServiceForm = () => {
     return (
     <>
     <div className='service-container'>
-        <span className='close-btn'>×</span>
+        
         <div className='form-content-left'>
-            <h1> Already a partner?</h1>
-            <span className='form-imput-login'>
-               Login <a href="/#">here</a>
-            </span>
+            <img className='newImage' src='https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX4163865.jpg' alt='New'></img>
         </div>
             {/* if is not submitted, display form, else success:*/}
             {!isSubmitted ? (<FormServices submitForm= {submitForm}/> ) : (<FormSuccess/>)}

@@ -92,7 +92,7 @@ INSERT INTO Partners VALUES
 ('id-03', 'company 03', 'description','address 03', '12121212', 
 'company-user03', 'email4','password', 1250, 'id-02'),
 ('id-04', 'company 21', 'description', 'address 01', '12121212', 
-'company-user01', 'email2','password', 12350, 'id-01');
+'company-user01', 'email5','password', 12350, 'id-01');
 
 -- Create Services(service_id, service_name, service_description
 --          service_price, service_time, partner_id)
