@@ -81,12 +81,12 @@
     color: #fff;
   }
   
-  .form-inputs {
+  .form-imputs {
     margin-bottom: 0.5rem;
     width: 80%;
   }
   
-  .form-inputs p {
+  .form-imputs p {
     font-size: 0.8rem;
     margin-top: 0.5rem;
     color: #f00e0e;
@@ -99,7 +99,7 @@
     color: #fff;
   }
   
-  .form-input {
+  .form-imput {
     display: block;
     padding-left: 10px;
     outline: none;
@@ -109,12 +109,12 @@
     border: none;
   }
   
-  .form-input::placeholder {
+  .form-imput::placeholder {
     color: #595959;
     font-size: 12px;
   }
   
-  .form-input-btn {
+  .form-imput-btn {
     width: 80%;
     height: 50px;
     margin-top: 10px;
@@ -173,6 +173,7 @@
 	.login-container{
 		grid-template-columns: 1fr;
         width: 500px;
+        
 	}
 
 	.form-content-left{

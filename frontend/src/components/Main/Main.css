@@ -33,6 +33,7 @@
 .footer-main{
     height: 200px;
     color: white  !important;
+    background-color: #40e0d0 !important;
 }
 
 .navbar-main{
@@ -124,3 +125,4 @@
     text-align: center;
     color:black;
 }
+

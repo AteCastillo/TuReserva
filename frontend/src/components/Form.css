@@ -101,10 +101,10 @@
     color: #fff;
     text-align: start;
     width: 80%;
-    text-transform: lowercase;
+    text-transform: lowercase !important;
   }
   .form h2::first-letter{
-    text-transform: capitalize;
+    text-transform: capitalize !important;
   }
   
   .form-imputs {

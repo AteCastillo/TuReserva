@@ -1,11 +1,11 @@
-//import Carousel from "react-multi-carousel";
-//import "react-multi-carousel/lib/styles.css";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 import React from 'react';
-import Carousel from 'react-gallery-carousel';
+//import Carousel from 'react-gallery-carousel';
 import 'react-gallery-carousel/dist/index.css';
 import "./Partner.css"
 
-/*
+
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
@@ -50,15 +50,15 @@ export const CarouselPartner = (props) => {
   ))}
 </Carousel>
   )
-} 
-*/
-export const CarouselPartner = () =>{
-const images = [900, 800, 700, 600, 500].map((size) => ({
-    src: `https://placedog.net/${size}/${size}`
+};
+/*
+export const CarouselPartner = (props) =>{
+const images = props.images.map((element) => ({
+    src: {element}
   }));
 
   return (
     <Carousel images={images} />
   );
   };
-
+*/
