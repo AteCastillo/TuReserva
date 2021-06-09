@@ -10,12 +10,11 @@ export const PartnerInfo = ({id, address, name, phone, description, image}) => {
         <img className="card-img-partner" src={`${image[0]}`}  alt="Card image cap" />
         </figure>
         <div className="info-partner">
-
         <ul className="list-group list-group-flush info-partner">
             <li className="list-group-item card-text">
             {description}
             </li>
-            <li className="list-group-item"><i class="fas fa-map-marker-alt"></i>  {address}</li>
+            <li className="list-group-item"><i class="fas fa-map-marker-alt"></i> {address}</li>
             <li className="list-group-item "><i class="fa fa-phone" aria-hidden="true"></i>  {phone}</li>
         </ul>
         

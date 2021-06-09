@@ -5,8 +5,8 @@ import {Link} from 'react-router-dom';
 import './Formuser.css';
 
 
-const FormSignupUser = ({ submitForm }) => {
-    const {handleChange, values, handleSubmit, errors} = useFormSignupUser(submitForm,validateInfoSignupUser);
+const FormSignupUser = () => {
+    const {handleChange, values, handleSubmit, errors} = useFormSignupUser(validateInfoSignupUser);
     return (
        <div className="form-content-right">
            <form className="form" onSubmit={handleSubmit} noValidate>

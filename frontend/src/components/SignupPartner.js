@@ -1,13 +1,8 @@
 import React, {useState} from 'react';
 import FormSignup from './FormSignup';
-import FormSuccess from './FormSuccess';
 import './Form.css';
 
 export const SignupPartner = () => {
-    const [isSubmitted, setIsSubmitted] = useState(false)
-    function submitForm(){
-        setIsSubmitted(true);
-    }
     return (
     <>
     <div className='form-container'>
@@ -19,8 +14,7 @@ By registering, you agree that you will use TuReserva only for the purposes adve
 </p>
 
         </div>
-            {/* if is not submitted, display form, else success:*/}
-            {!isSubmitted ? (<FormSignup submitForm= {submitForm}/> ) : (<FormSuccess/>)}
+            <FormSignup/>
         </div>
     </>
     );

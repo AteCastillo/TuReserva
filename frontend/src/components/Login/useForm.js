@@ -29,11 +29,16 @@ const useFormLogin = (callback,validateInfoLogin) => {
                 username:values.username,
                 password: values.password
             })
+           
             
         })
         const data = await res.json()
         if (data !== "Wrong Password"){
             localStorage.setItem('tureserva_token', data)
+            //let response = "OK"
+        }
+        else{
+            //let response = "NO"
         }
     };
 
@@ -46,7 +51,7 @@ const useFormLogin = (callback,validateInfoLogin) => {
     },
     [errors]
     ); */
-    return { handleChange, values, handleSubmit, errors };
+    return { handleChange, values, handleSubmit, errors};
 };
 
 
