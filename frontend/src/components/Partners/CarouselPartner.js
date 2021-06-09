@@ -52,9 +52,9 @@ export const CarouselPartner = (props) => {
   )
 } 
 */
-export const CarouselPartner = (props) =>{
-const images = props.images.map((element) => ({
-    src: `{element}`
+export const CarouselPartner = () =>{
+const images = [900, 800, 700, 600, 500].map((size) => ({
+    src: `https://placedog.net/${size}/${size}`
   }));
 
   return (

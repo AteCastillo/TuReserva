@@ -1,6 +1,7 @@
 import React from 'react';
 import useFormSignupUser from './useFormSignupUser';
 import validateInfoSignupUser from './validateInfoSignupUser';
+import {Link} from 'react-router-dom';
 import './Formuser.css';
 
 
@@ -55,7 +56,7 @@ const FormSignupUser = ({ submitForm }) => {
            </div>
            <button className='form-imput-buttom' type="submit">Sign up</button>
            <span className='form-imput-login'>
-               Already have an account? Login <a href="/#">here</a>
+               Already have an account? Login <Link className='form-imput-link' to="/login">here</Link>
            </span>
            </form>
        </div>

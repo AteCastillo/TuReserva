@@ -1,6 +1,7 @@
 import React from 'react';
 import useFormLogin from './useForm';
 import validateInfoLogin from './validateInfo';
+import {Link} from 'react-router-dom';
 import './login.css';
 
 
@@ -38,7 +39,7 @@ const FormLogin = ({ submitForm }) => {
            </div>
            <button className='form-imput-buttom' type="submit">Log in</button>
            <span className='form-input-login'>
-           Don't have an account?  Create one <a href='/#'>here</a>
+           Don't have an account?  Create one <Link to="/signupuser">here</Link>
            </span>
            </form>
        </div>
