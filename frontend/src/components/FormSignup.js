@@ -4,27 +4,14 @@ import validateInfo from './validateInfo';
 import './Form.css';
 
 
-const FormSignup = ({ submitForm }) => {
-    const {handleChange, values, handleSubmit, errors} = useForm(submitForm,validateInfo);
+const FormSignup = () => {
+    const {handleChange, values, handleSubmit, errors} = useForm(validateInfo);
     return (
        <div className="form-content-right">
            <form className="form" onSubmit={handleSubmit} noValidate>
                <h1>Become our partner!</h1>
                <h2> Create your account by filling out the information bellow </h2>
-            <div className='form-imputs'>
-                <label className='form-label'>Username</label>
-                <input
-                    className='form-imput'
-                    type='text'
-                    name='username'
-                    placeholder='Enter your username'
-                    value={values.username}
-                    onChange={handleChange}
-                />
-                {/*if errors.username is true, it will return whatever passed after that (in this case, {errors.username} */}
-                {errors.username && <p>{errors.username}</p>}
-            </div>
-            
+     
             <div className='form-imputs'>
                 <label className='form-label'>Company's name</label>
                 <input
@@ -38,16 +25,18 @@ const FormSignup = ({ submitForm }) => {
                 {errors.name && <p>{errors.name}</p>}
             </div>
             
-            <div className='form-imputs'>
+            <div className='form-imputs form-textarea'>
                 <label className='form-label'>Company's description</label>
-                <input
+                <textarea
                     className='form-imput'
                     type='text'
                     name='description'
                     placeholder="Enter your company's description"
                     value={values.description}
+                    rows="5"
+                    cols="40"
                     onChange={handleChange}
-                />
+                ></textarea>
                 {errors.description && <p>{errors.description}</p>}
             </div>
 
@@ -77,7 +66,20 @@ const FormSignup = ({ submitForm }) => {
                 {errors.telephone && <p>{errors.telephone}</p>}
             </div>
 
-           
+            <div className='form-imputs'>
+                <label className='form-label'>Username</label>
+                <input
+                    className='form-imput'
+                    type='text'
+                    name='username'
+                    placeholder='Enter your username'
+                    value={values.username}
+                    onChange={handleChange}
+                />
+                {/*if errors.username is true, it will return whatever passed after that (in this case, {errors.username} */}
+                {errors.username && <p>{errors.username}</p>}
+            </div>
+            
            <div className="form-imputs">
                 <label className="form-label">
                     Email
@@ -106,6 +108,20 @@ const FormSignup = ({ submitForm }) => {
                 className="form-imput" placeholder="Re enter your password"
                 value={values.confirmpassword} onChange={handleChange}/>
                 {errors.confirmpassword && <p>{errors.confirmpassword}</p>}
+           </div>
+           <div className="form-imputs">
+                <label className="form-label">
+                    Category
+                </label>
+                <select name='categories' 
+                className='categories-form' value={values.categories} 
+                onChange={handleChange} defaultValue="">
+                    <option value='id-01'>Stetic</option>
+                    <option value='id-02'>Massagge</option>
+                    <option value='id-03'>Clean</option>
+               </select>
+               {errors.category && <p>{errors.category}</p>}
+
            </div>
            <button className='form-imput-buttom' type="submit">Sign up</button>
            </form>

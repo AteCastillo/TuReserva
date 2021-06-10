@@ -7,6 +7,7 @@ export const Services = () => {
     <div className="main-services">
 
         <CategoriesMain/>
+
     </div>
 )
 }

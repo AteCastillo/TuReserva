@@ -2,11 +2,13 @@ import React from 'react';
 import useFormLogin from './useForm';
 import validateInfoLogin from './validateInfo';
 import {Link} from 'react-router-dom';
+
 import './login.css';
 
 
-const FormLogin = ({ submitForm }) => {
-    const {handleChange, values, handleSubmit, errors} = useFormLogin(submitForm,validateInfoLogin);
+const FormLogin = (props) => {
+    const {handleChange, values, handleSubmit, errors, response} = useFormLogin(validateInfoLogin);
+    
     return (
                 
        <div className="form-content-right">
@@ -25,7 +27,7 @@ const FormLogin = ({ submitForm }) => {
                     />
                     
                 {/*if errors.username is true, it will return whatever passed after that (in this case, {errors.username} */}
-                {/*{errors.username && <p>{errors.username}</p>}*/}
+                {errors.username && <p>{errors.username}</p>}
             </div>
            <div className="form-imputs">
                 <label className="form-label">
@@ -34,7 +36,7 @@ const FormLogin = ({ submitForm }) => {
                 <input type="password" name='password'
                 className="form-imput" placeholder="Enter your password"
                 value={values.password} onChange={handleChange}/>
-                {/*errors.password && <p>{errors.password}</p>*/}
+                {errors.password && <p>{errors.password}</p>}
 
            </div>
            <button className='form-imput-buttom' type="submit">Log in</button>

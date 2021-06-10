@@ -9,31 +9,41 @@ import "./Partner.css"
 export const PartnerMain = (props) => {
     const [services, setServices] = useState([])
     const elems = props.location
-
     // Comunication with child component
     const [select, setSelect] = useState([])
     const [names, setNames] = useState([])
+    const [times, setTimes] = useState([])
+    const [prices, setPrices] = useState([])
     const [total, setTotal] = useState(0)
     const [quantity, setQuantity] = useState(0)
 
     const contar = (cant) => setQuantity(quantity + cant)
-    const add = (price, id, name) => {
+    const add = (price, id, name, time) => {
         setTotal(total + price);
         contar(1);
         setSelect(select => [...select, id]);
         setNames(names => [...names, name])
+        setPrices(prices => [...prices, price]);
+        setTimes(times => [...times, time])
         document.getElementById(id).className = 'services-container checked';
     };
     const del = (price, id) => {
         const temp = [...select];
         const temp2 = [...names];
+        const temp3 = [...prices]
+        const temp4 = [...times];
         const index = select.indexOf(id)
         temp.splice(index, 1);
         temp2.splice(index, 1);
+        temp3.splice(index, 1);
+        temp4.splice(index, 1);
         setTotal(total - price);
         contar(-1);
         setSelect(temp);
         setNames(temp2);
+        setPrices(temp3);
+        setTimes(temp4);
+        
         const div = document.querySelector(id);
         document.getElementById(id).className = 'services-container';
 
@@ -57,7 +67,6 @@ export const PartnerMain = (props) => {
             }
             getData()
         }, []);
-        console.log(elems.images)
     return (
         <>
         <div className="partner-container">
@@ -95,7 +104,9 @@ export const PartnerMain = (props) => {
     </div>
     {total !== 0 && <Reservation className="reservation" 
                         total={total} quantity={quantity}
-                        services={select} names={names}/>}
+                        services={select} names={names}
+                        times={times} prices={prices} 
+                        partner={elems.id}/>}
     </>
     )
 }

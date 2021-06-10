@@ -4,7 +4,7 @@
     box-shadow: 0 5px 8px 0 rgba(196, 82, 82, 0.2), 0 7px 20px 0 rgba(204, 189, 189, 0.2);
     position: relative;
     border-radius: 10px;
-    height: 1000px !important;
+    height: 1100px !important;
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
@@ -17,7 +17,8 @@
     z-index: 1;
     color: #fff;
     cursor: pointer;
-  }
+     
+   }
   
   .form-content-left {
     background: linear-gradient(
@@ -154,37 +155,15 @@
     color: #c72b2b;
     font-weight: 800;
   }
+  
+  .form-imput-buttom{
+    border: 3px solid white !important;
+    width: 30%;
+    height: 50px;
+    border-radius: 5px;
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-top:10px; 
+  }
 
-  @media screen and (max-width: 1000px){
-	form{
-		width: 190px;
-	}
-
-	.form-content-right h2{
-        font-size: 2.4rem;
-        margin: 8px 0;
-	}
-
-	.form-imputs img{
-		width: 400px;
-	}
-}
-  @media screen and (max-width: 900px){
-	.form-container{
-		grid-template-columns: 1fr;
-        width: 500px;
-	}
-
-	.form-content-left{
-		display: none;
-	}
-
-	.form-img{
-		display: none;
-	}
-
-	.form-content-rigth{
-		justify-content: center;
-	}
-}
   

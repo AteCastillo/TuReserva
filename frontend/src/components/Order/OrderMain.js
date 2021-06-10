@@ -1,20 +1,18 @@
 import React from 'react';
 import { DateTimePicker } from './DateTimePicker';
+import "./Order.css"
+import { OrderInfo } from './OrderInfo';
 
 export const OrderMain = (props) => {
-    const names = props.location.names
-    console.log(names)
-    names.forEach(element => {
-        console.log(element)
-    })
-
+    const elems = props.location
     return(
-        <>
-        {names.map((element) => (
-            <h2>{element}</h2>
-        ))}
-        <DateTimePicker/>
-        </>
+        <div className="order-container">
+        <DateTimePicker className="datetime-container"/>
+        <OrderInfo className="orderinfo-container" names={elems.names}
+        quantity={elems.quantity} total={elems.total}
+        prices={elems.prices} times={elems.times} services={elems.services} 
+        partner={elems.partner}/>
+        </div>
         
         
     );

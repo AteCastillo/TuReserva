@@ -1,8 +1,8 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import {About} from "./components/About"
-import {Services} from "./components/Main/Services"
 import {Navbar} from "./components/Navbar"
+import {Services} from "./components/Main/Services"
 import {Register} from './components/Register'
 import {Footer} from "./components/Footer"
 import {Login} from './components/Login/Login'
@@ -15,11 +15,17 @@ import Main from "./components/Partners/Test"
 import {OrderMain} from './components/Order/OrderMain'
 
 
-function App() {
+function App(props) {
+  const [isLogged, setIsLogged] = useState(false);
+  const token = localStorage.getItem('tureserva_token');
+  useEffect(() => {
+    if (token !== null){
+      setIsLogged(true);
+    }
+  }, [])
   return (
    <Router>
-     <Navbar islogged={false}/>
-
+     <Navbar isLogged={isLogged}/>
        <Switch>
          <Route path="/about" component={About}/>
          <Route path="/register" component={Register}/>
@@ -32,8 +38,6 @@ function App() {
          <Route path="/test" component={Main}/>
          <Route path="/order" component={OrderMain}/>
          <Route path="/" component={Services}/>
-         
-         
        </Switch>
        <Footer/> 
    </Router>

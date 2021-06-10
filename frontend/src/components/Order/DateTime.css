@@ -84,14 +84,6 @@ thead tr:nth-child(3) th {
     cursor: pointer
 }
 
-.cell:hover {
-    border: 1px solid #3D5AFE
-}
-
-.cell.select {
-    background-color: #3D5AFE;
-    color: #fff
-}
 
 .fa-calendar {
     color: #fff;
