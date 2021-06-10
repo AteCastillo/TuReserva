@@ -41,5 +41,6 @@ export default function validateInfo(values){
     } else if(values.confirmpassword !== values.password){
         errors.confirmpassword = 'Passwords do not match';
     }
+    
     return errors;
 }

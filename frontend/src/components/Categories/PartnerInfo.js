@@ -7,7 +7,7 @@ export const PartnerInfo = ({id, address, name, phone, description, image}) => {
         <div className="card p-2 m-4 partner-card" style={{width: '400px', height: '600px'}}>
         <h3 className="card-title font-weight-bold text-center">{name}</h3>
         <figure>
-        <img className="card-img-partner" src={`${image[0]}`}  alt="Card image cap" />
+        <img className="card-img-partner" src={`${image[0]}`} alt=""/>
         </figure>
         <div className="info-partner">
         <ul className="list-group list-group-flush info-partner">

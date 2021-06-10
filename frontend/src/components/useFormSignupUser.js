@@ -32,7 +32,7 @@ const useFormSignupUser = (validateInfo) => {
         () => {
         if (Object.keys(errors).length === 0 && submitting){
             const send_request = async () => {
-            const res = await fetch(`http://localhost:5200/users`, {
+            await fetch(`http://localhost:5200/users`, {
             method: 'POST',
             headers:{
                 'Content-Type': 'application/json'

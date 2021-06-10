@@ -47,7 +47,7 @@ _____________
 
 
 # Create User (POST Method)
-curl -X POST -H "Content-Type: application/json"
+curl -X POST -H "Content-Type: application/json" \
 -d '{"username":"username", "password":"pass",
 "email":"email@gmail.com", "cash":0}'
 127.0.0.1:5200/users

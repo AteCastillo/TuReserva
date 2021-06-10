@@ -3,11 +3,11 @@ import "./DateTime.css"
 
 export const DateTimePicker = () => {
     return(
-        <div>
+        <div className="datetime">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.css" />
-        <div className="container-fluid px-0 px-sm-4 mx-auto">
+        <div >
           <div className="row justify-content-center mx-0">
             <div className="col-lg-10">
               <div className="card border-0">
@@ -18,76 +18,76 @@ export const DateTimePicker = () => {
                   <div className="card-body p-3 p-sm-5">
                     <div className="row text-center mx-0">
                       <div className="col-md-2 col-4 my-1 px-2">
-                        <div className="cell py-1">9:00AM</div>
+                        <div className="cell py-1">9:00</div>
                       </div>
                       <div className="col-md-2 col-4 my-1 px-2">
-                        <div className="cell py-1">9:30AM</div>
+                        <div className="cell py-1">9:30</div>
                       </div>
                       <div className="col-md-2 col-4 my-1 px-2">
-                        <div className="cell py-1">9:45AM</div>
+                        <div className="cell py-1">9:45</div>
                       </div>
                       <div className="col-md-2 col-4 my-1 px-2">
-                        <div className="cell py-1">10:00AM</div>
+                        <div className="cell py-1">10:00</div>
                       </div>
                       <div className="col-md-2 col-4 my-1 px-2">
-                        <div className="cell py-1">10:30AM</div>
+                        <div className="cell py-1">10:30</div>
                       </div>
                       <div className="col-md-2 col-4 my-1 px-2">
-                        <div className="cell py-1">10:45AM</div>
-                      </div>
-                    </div>
-                    <div className="row text-center mx-0">
-                      <div className="col-md-2 col-4 my-1 px-2">
-                        <div className="cell py-1">11:00AM</div>
-                      </div>
-                      <div className="col-md-2 col-4 my-1 px-2">
-                        <div className="cell py-1">11:30AM</div>
-                      </div>
-                      <div className="col-md-2 col-4 my-1 px-2">
-                        <div className="cell py-1">11:45AM</div>
-                      </div>
-                      <div className="col-md-2 col-4 my-1 px-2">
-                        <div className="cell py-1">12:00PM</div>
-                      </div>
-                      <div className="col-md-2 col-4 my-1 px-2">
-                        <div className="cell py-1">12:30PM</div>
-                      </div>
-                      <div className="col-md-2 col-4 my-1 px-2">
-                        <div className="cell py-1">12:45PM</div>
+                        <div className="cell py-1">10:45</div>
                       </div>
                     </div>
                     <div className="row text-center mx-0">
                       <div className="col-md-2 col-4 my-1 px-2">
-                        <div className="cell py-1">1:00PM</div>
+                        <div className="cell py-1">11:00</div>
                       </div>
                       <div className="col-md-2 col-4 my-1 px-2">
-                        <div className="cell py-1">1:30PM</div>
+                        <div className="cell py-1">11:30</div>
                       </div>
                       <div className="col-md-2 col-4 my-1 px-2">
-                        <div className="cell py-1">1:45PM</div>
+                        <div className="cell py-1">11:45</div>
                       </div>
                       <div className="col-md-2 col-4 my-1 px-2">
-                        <div className="cell py-1">2:00PM</div>
+                        <div className="cell py-1">12:00</div>
                       </div>
                       <div className="col-md-2 col-4 my-1 px-2">
-                        <div className="cell py-1">2:30PM</div>
+                        <div className="cell py-1">12:30</div>
                       </div>
                       <div className="col-md-2 col-4 my-1 px-2">
-                        <div className="cell py-1">2:45PM</div>
+                        <div className="cell py-1">12:45</div>
                       </div>
                     </div>
                     <div className="row text-center mx-0">
                       <div className="col-md-2 col-4 my-1 px-2">
-                        <div className="cell py-1">3:00PM</div>
+                        <div className="cell py-1">1:00</div>
                       </div>
                       <div className="col-md-2 col-4 my-1 px-2">
-                        <div className="cell py-1">3:30PM</div>
+                        <div className="cell py-1">1:30</div>
                       </div>
                       <div className="col-md-2 col-4 my-1 px-2">
-                        <div className="cell py-1">4:15PM</div>
+                        <div className="cell py-1">1:45</div>
                       </div>
                       <div className="col-md-2 col-4 my-1 px-2">
-                        <div className="cell py-1">5:00PM</div>
+                        <div className="cell py-1">2:00</div>
+                      </div>
+                      <div className="col-md-2 col-4 my-1 px-2">
+                        <div className="cell py-1">2:30</div>
+                      </div>
+                      <div className="col-md-2 col-4 my-1 px-2">
+                        <div className="cell py-1">2:45</div>
+                      </div>
+                    </div>
+                    <div className="row text-center mx-0">
+                      <div className="col-md-2 col-4 my-1 px-2">
+                        <div className="cell py-1">3:00</div>
+                      </div>
+                      <div className="col-md-2 col-4 my-1 px-2">
+                        <div className="cell py-1">3:30</div>
+                      </div>
+                      <div className="col-md-2 col-4 my-1 px-2">
+                        <div className="cell py-1">4:15</div>
+                      </div>
+                      <div className="col-md-2 col-4 my-1 px-2">
+                        <div className="cell py-1">5:00</div>
                       </div>
                     </div>
                   </div>

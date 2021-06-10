@@ -2,11 +2,12 @@ import React from 'react';
 import useFormLogin from './useForm';
 import validateInfoLogin from './validateInfo';
 import {Link} from 'react-router-dom';
+
 import './login.css';
 
 
-const FormLogin = ({ submitForm }) => {
-    const {handleChange, values, handleSubmit, errors, response} = useFormLogin(submitForm,validateInfoLogin);
+const FormLogin = (props) => {
+    const {handleChange, values, handleSubmit, errors, response} = useFormLogin(validateInfoLogin);
     
     return (
                 

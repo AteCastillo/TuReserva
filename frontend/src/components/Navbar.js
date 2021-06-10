@@ -10,7 +10,10 @@ import "./Main/Main.css"
 import { MDBIcon } from "mdbreact";
 
 
-export const Navbar = (props) => (
+
+export const Navbar = (props) => {
+  
+  return (
     <div className="navbar-main cyan">
       <div className="container-navbar">
       <Link to="/"> <img src={logo} className="navbar-logo" alt="logo" /></Link>
@@ -22,22 +25,19 @@ export const Navbar = (props) => (
       </div>
       </div>
      
-      {props.islogged ? (
+      {props.isLogged ? (
         <div>
         <img src={icon} className="icon-user"/>
         <p className="icon-msg">Welcome</p>
         </div>
       ) : (
         <div className="login-navbar">
-            
-        
         <MDBIcon icon="sign-in-alt"/>
         <Link className="form-login" aria-current="page" to="/login">Login</Link>
         <MDBIcon icon="user-plus" />
         <Link className="form-signupuser" aria-current="page" to="/signupuser">Sign up</Link>
         </div>
       )}
-      
     </div>
-  
-);
+  )
+};

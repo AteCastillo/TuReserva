@@ -10,10 +10,9 @@ const useForm = (validateInfo) => {
         telephone:'',
         email: '',
         password: '',
-        confirmpassword: ''
+        confirmpassword: '',
+        categories: 'id-01'
     });
-
-
     const [errors, setErrors] = useState({});
 
     const handleChange = e => {
@@ -23,6 +22,7 @@ const useForm = (validateInfo) => {
         });
     };
     const handleSubmit = async e => {
+        
         e.preventDefault();
         setErrors(validateInfo(values)); 
         setSubmit(true);
@@ -32,10 +32,8 @@ const useForm = (validateInfo) => {
     useEffect(
         () => {
         if (Object.keys(errors).length === 0 && submit === true){
-            console.log(errors)
-            console.log(values.name)
             const send_request = async () => {
-                const res = await fetch(`http://localhost:5200/partners`, {
+                await fetch(`http://localhost:5200/partners`, {
                 method: 'POST',
                 headers:{
                     'Content-Type': 'application/json'
@@ -48,13 +46,9 @@ const useForm = (validateInfo) => {
                     phone: values.telephone,
                     email: values.email,
                     password: values.password,
-                    category_id: 'id-01'
+                    category_id: values.categories
                 })
-                
-                
             })
-            const data = await res;
-            console.log(data)
             }
             send_request();
         }

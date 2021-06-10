@@ -4,7 +4,7 @@
     box-shadow: 0 5px 8px 0 rgba(196, 82, 82, 0.2), 0 7px 20px 0 rgba(204, 189, 189, 0.2);
     position: relative;
     border-radius: 10px;
-    height: 1000x !important;
+    height: 1100px !important;
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
@@ -165,3 +165,5 @@
     font-weight: 800;
     margin-top:10px; 
   }
+
+  

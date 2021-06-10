@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 
 export const ServiceInfo = ({name, description, time,
@@ -14,11 +14,11 @@ export const ServiceInfo = ({name, description, time,
         <p className="price-services">${price}</p>
          {select.includes(id) && select.length > 0 ? (
             <button className='button-services' 
-            onClick={(e) => del(price, id, name)}> - </button>
+            onClick={(e) => del(price, id)}> - </button>
         ) : (
             
             <button className='button-services'
-            onClick={(e) => add(price, id, name)}> + </button>
+            onClick={(e) => add(price, id, name, time)}> + </button>
         )}
         </div>
     )
