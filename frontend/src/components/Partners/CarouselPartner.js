@@ -2,7 +2,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import React from 'react';
 //import Carousel from 'react-gallery-carousel';
-import 'react-gallery-carousel/dist/index.css';
+//import 'react-gallery-carousel/dist/index.css';
 import "./Partner.css"
 
 
