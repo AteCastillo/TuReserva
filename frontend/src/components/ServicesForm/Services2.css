@@ -199,4 +199,41 @@
     margin-top:20px;
   }
 
-  
+.steps{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  color:white;
+  width:250px;
+  font-weight: bolder;
+  font-size: 1.3rem;
+  justify-content: space-around;
+  align-items: center;
+  margin: -70px 40% 20px 40%;
+}
+
+.elem-step{
+  width:40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-step{
+  width:60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 3px solid rgba(0,0,0,0.4);
+  margin-left:10px;
+  background-color:#01bcd4;
+  color:white;
+  position: absolute;
+  font-size:1.3rem;
+  font-weight: 900;
+  bottom:0;
+  right: 0;
+  margin-right: 20%;
+}

@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import FormSignup from './FormSignup';
 import './Form.css';
+import { Steps } from './ServicesForm/Steps';
 
 export const SignupPartner = () => {
     return (
@@ -16,6 +17,7 @@ By registering, you agree that you will use TuReserva only for the purposes adve
         </div>
             <FormSignup/>
         </div>
+        <Steps first="#01bcd4" second="#b0b0ab" button={false}/>
     </>
     );
 };

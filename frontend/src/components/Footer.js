@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import "./Main/Main.css"
 
 export const Footer = () => (
-    <footer class="page-footer  font-small cyan fix">
+    <footer class="page-footer footer-service font-small cyan fix">
       <div class="container absolute">
         <div class="row">
     
