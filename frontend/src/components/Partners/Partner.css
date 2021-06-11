@@ -1,0 +1,158 @@
+.carousel-container-partner{
+    width:100%;
+    margin:5px 0;
+    display:flex;
+    flex-direction: row;
+}
+
+.partner-container{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.partner-name{
+    font-weight: 900;
+    font-size:3.2rem;
+    padding:10px;
+    text-align: center;
+    
+}
+
+.partner-description{
+    font-size:1.2rem;
+}
+
+.partner-info{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.services-container{
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow:  2px 2px 2px 1px rgba(0, 0, 0, 0.3);
+    height:150px;
+}
+
+.info-services{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin-left:20px;
+}
+
+.name-services{
+    font-weight: bolder;
+}
+
+.price-services{
+    font-weight: 700;
+
+}
+
+.button-services{
+    margin-right: 20px;
+    border:none;
+    border-radius: 50%;
+    background-color: #01bcd4;
+    color:white !important;
+    width:40px;
+    height: 40px;
+    font-weight: bolder;
+    font-size:1.5rem;
+}
+
+.checked{
+    border-left:5px solid teal;
+}
+
+.reservation{
+    position: sticky;
+    bottom:0;
+}
+
+.service{
+    display: flex;
+    flex-direction: column;
+    border:10px solid black;
+}
+
+
+.carousel-item-partner{
+    width: 30%;
+    height: 100%;
+}
+
+.img-carousel-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-carousel-container img{
+    min-height: 400px;
+    max-height: 400px;
+}
+
+.reservation-partner{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 120px;
+    background-color: rgba(199, 196, 196, 0.961);
+}
+
+.reservation-partner p{
+    margin-top: 10px;
+    font-size: 1.5rem;
+}
+
+.reservation-button{
+    color:white;
+    width:150px;
+    border-radius: 4px;
+    border: 4px solid white;
+    background-color: #01bcd4;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    margin-right: 50px;
+}
+
+.reservation-service{
+    display: absolute;
+    margin:0 auto 10px auto;
+    font-style: italic;
+}
+
+.container {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: auto;
+}
+
+.imgPartner1{
+    height: 300px;
+    width: 450px;
+    padding: 20px;
+    
+}
+.imgPartner{
+    height: 300px;
+    width: 450px;
+    padding: 20px;
+}

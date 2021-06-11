@@ -1,6 +1,7 @@
 import React from 'react'
-import BootstrapCarousel from './BootstrapCarousel';
 import {CategoriesMain} from './CategoriesMain'
+import BootstrapCarousel from './BootstrapCarousel' 
+
 import "./Main.css"
 
 export const Services = () => {
@@ -8,6 +9,7 @@ export const Services = () => {
     <div className="main-services">
         <BootstrapCarousel/>
         <CategoriesMain/>
+
     </div>
 )
 }

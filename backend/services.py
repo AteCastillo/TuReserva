@@ -7,10 +7,10 @@ service = Blueprint('service', __name__)
 manager = DBManager()
 
 # Create Service
-@service.route('/services/<partner_id>', methods=['POST'],
+@service.route('/services', methods=['POST'],
            strict_slashes=False)
 @swag_from('documentation/services/post_service.yml')
-def create_service(partner_id):
+def create_service():
     """Method to create a service for a partner
     Returns a 203 response if it's created correctly
     else return an error"""
@@ -18,7 +18,6 @@ def create_service(partner_id):
     service_values = ModelManager('Services').values
     service_values.pop(0)
     json_request = request.json
-    json_request['partner_id'] = partner_id
     #Check for existence of all keys in a dict
     if all(k in json_request for k in service_values):
         for elem in service_values:

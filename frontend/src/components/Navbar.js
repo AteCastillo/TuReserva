@@ -2,35 +2,44 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import './Navbar.css';
 //import {Logout} from './Logout';
-import logo from './logo2.png';
+import logo from './logo3.png';
 //import './Navbar.css';
+import icon from './Main/user.png'
 import './logo.css';
 import "./Main/Main.css"
+import { MDBIcon } from "mdbreact";
+import token from '../App';
 
 
 
-export const Navbar = (props) => (
-    <div className="navbar-main cyan darken-3">
+export const Navbar = (props) => {
+  let isLogged = false;
+  console.log(token)
+  return (
+    <div className="navbar-main cyan">
       <div className="container-navbar">
       <Link to="/"> <img src={logo} className="navbar-logo" alt="logo" /></Link>
       <label htmlFor="service"></label>
       <div className="search-navbar">
-        <input className="search-input" type="text" id="search" placeholder="Search"/>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search search-icon" viewBox="0 0 16 16">
-          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-        </svg>
-      </div>
+      <form class="form-inline">
+        <input class="form-control search-navbar mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input>
+     </form>
+      </div>  
       </div>
      
-      {props.islogged ? (
-        <p>Logged</p>
+      {isLogged ? (
+        <div>
+        <img src={icon} className="icon-user"/>
+        <p className="icon-msg">Logout</p>
+        </div>
       ) : (
         <div className="login-navbar">
-        <Link className="form-login" aria-current="page" to="/login">Log in</Link>
-        <Link className="form-signupuser" aria-current="page" to="/signupuser">Sing up</Link>
+        <MDBIcon icon="sign-in-alt"/>
+        <Link className="form-login" aria-current="page" to="/login">Login</Link>
+        <MDBIcon icon="user-plus" />
+        <Link className="form-signupuser" aria-current="page" to="/signupuser">Sign up</Link>
         </div>
       )}
-      
     </div>
-  
-);
+  )
+};

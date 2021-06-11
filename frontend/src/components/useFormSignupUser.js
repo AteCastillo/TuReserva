@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 
-const useFormSignupUser = (callback,validateInfo) => {
+const useFormSignupUser = (validateInfo) => {
     const [values,setValues] = useState({
         username:'',
         email: '',
@@ -11,7 +11,7 @@ const useFormSignupUser = (callback,validateInfo) => {
 
     const [errors, setErrors] = useState({});
     // false because is not submitted yet:
-    const [isSubmitting, setIsSubmitting] = useState (false);
+    const [submitting, setSubmitting] = useState (false);
 
     const handleChange = e => {
         setValues({
@@ -23,7 +23,16 @@ const useFormSignupUser = (callback,validateInfo) => {
         e.preventDefault();
 
         setErrors(validateInfo(values));
-        const res = await fetch(`http://localhost:5200/users`, {
+        setSubmitting(true);
+        
+        
+    }; 
+
+    useEffect(
+        () => {
+        if (Object.keys(errors).length === 0 && submitting){
+            const send_request = async () => {
+            await fetch(`http://localhost:5200/users`, {
             method: 'POST',
             headers:{
                 'Content-Type': 'application/json'
@@ -33,18 +42,10 @@ const useFormSignupUser = (callback,validateInfo) => {
                 email: values.email,
                 password: values.password,
             })
-            
         })
-        const data = await res.json()
-        console.log(data)
-        
-    }; 
-
-    useEffect(
-        () => {
-        if (Object.keys(errors).length === 0 && isSubmitting){
-            callback();
-        }
+    }
+    send_request();
+    }
     },
     [errors]
     );

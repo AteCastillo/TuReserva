@@ -1,23 +1,14 @@
-.form-container {
+.user-container {
     margin: 100px auto;
     width: 1000px;
     box-shadow: 0 5px 8px 0 rgba(196, 82, 82, 0.2), 0 7px 20px 0 rgba(204, 189, 189, 0.2);
     position: relative;
     border-radius: 10px;
-    height: 650px;
+    height: 650px !important;
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
   
-  .close-btn {
-    position: absolute;
-    top: 2%;
-    right: 3%;
-    font-size: 1.5rem;
-    z-index: 1;
-    color: #fff;
-    cursor: pointer;
-  }
   
   .form-content-left {
     background: linear-gradient(
@@ -73,11 +64,15 @@
     align-items: center;
   }
 
-  .form h2 {
+  .form h1 {
     font-size: 14px;
     color: #fff;
     text-align: start;
     width: 80%;
+    text-transform: lowercase !important;
+  }
+  .form h1::first-letter{
+    text-transform: capitalize !important;
   }
  
   
@@ -110,47 +105,29 @@
   }
   
   .form-imput::placeholder {
-    color: #595959;
+    color: #01bcd4 !important;
     font-size: 12px;
   }
   
-  .form-imput-btn {
-    width: 80%;
-    height: 50px;
-    margin-top: 10px;
-    border-radius: 2px;
-    background: linear-gradient(
-      90deg,
-      rgb(39, 176, 255) 0%,
-      rgb(0, 232, 236) 100%
-    );
-    outline: none;
-    border: none;
-    color: #fff;
-    font-size: 1rem;
+
+
+  .form-imput-buttom{
+    background-color: #01bcd4;
+    color: white;
   }
   
-  .form-imput-btn:hover {
-    cursor: pointer;
-    background: linear-gradient(
-      90deg,
-      rgb(39, 143, 255) 0%,
-      rgb(12, 99, 250) 100%
-    );
-    transition: all 0.4s ease-out;
-  }
   
   .form-imput-login {
-    font-size: 2.5rem;
+    font-size: 1rem !important;
     margin-top: 10px;
-    color: #fff;
+    color: rgb(240, 231, 231) !important;
     width: 80%;
     text-align: center;
   }
   
-  .form-imput-login a {
+  .form-imput-link {
     text-decoration: none;
-    color: #ff2727;
+    color: #01bcd4 !important;
     font-weight: 600;
   }
   

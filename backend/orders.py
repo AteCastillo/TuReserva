@@ -11,13 +11,14 @@ manager = DBManager()
 @order.route('/orders', methods=['POST'],
            strict_slashes=False)
 @swag_from('documentation/orders/post_order.yml')
-def order_create(user_id, partner_id):
+def order_create():
     """Create a Review"""
     values = []
     user_values = ModelManager('Orders').values
     user_values.pop(0)
     # DateTime format is YYYY-MM-DD HH-MM-SS
     json_request = request.json
+    print(json_request)
     #Check for existence of all keys in a dict
     if all(k in json_request for k in user_values):
         for elem in user_values:

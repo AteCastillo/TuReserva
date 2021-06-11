@@ -4,7 +4,7 @@
     box-shadow: 0 5px 8px 0 rgba(196, 82, 82, 0.2), 0 7px 20px 0 rgba(204, 189, 189, 0.2);
     position: relative;
     border-radius: 10px;
-    height: 1200px;
+    height: 1100px !important;
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
@@ -17,7 +17,8 @@
     z-index: 1;
     color: #fff;
     cursor: pointer;
-  }
+     
+   }
   
   .form-content-left {
     background: linear-gradient(
@@ -28,7 +29,20 @@
     border-radius: 10px 0 0 10px;
     position: relative;
   }
-  
+  .form-content-left h1{
+      color: #01bcd4;
+      margin-top: 40px;
+     
+      margin-right: 150px;
+      margin-left: 80px;
+      font-size: 1.5rem;
+  }
+  .form-content-left p {
+    text-align: justify;
+    margin-top: 20px;
+  margin-right: 100px;
+  margin-left: 80px;
+  }
   .form-img {
     width: 80%;
     height: 80%;
@@ -79,6 +93,7 @@
     width: 80%;
     margin-bottom: 1rem;
     color: #fff;
+    text-transform: uppercase !important;
   }
 
   .form h2 {
@@ -86,10 +101,10 @@
     color: #fff;
     text-align: start;
     width: 80%;
-    text-transform: lowercase;
+    text-transform: lowercase !important;
   }
   .form h2::first-letter{
-    text-transform: capitalize;
+    text-transform: capitalize !important;
   }
   
   .form-imputs {
@@ -121,35 +136,11 @@
   }
   
   .form-imput::placeholder {
-    color: #595959;
+    color: #01bcd4 !important;
     font-size: 12px;
   }
   
-  .form-imput-btn {
-    width: 80%;
-    height: 50px;
-    margin-top: 10px;
-    border-radius: 2px;
-    background: linear-gradient(
-      90deg,
-      rgb(39, 176, 255) 0%,
-      rgb(0, 232, 236) 100%
-    );
-    outline: none;
-    border: none;
-    color: #fff;
-    font-size: 1rem;
-  }
-  
-  .form-imput-btn:hover {
-    cursor: pointer;
-    background: linear-gradient(
-      90deg,
-      rgb(39, 143, 255) 0%,
-      rgb(12, 99, 250) 100%
-    );
-    transition: all 0.4s ease-out;
-  }
+
   
   .form-imput-login {
     font-size: 26px;
@@ -165,3 +156,23 @@
     font-weight: 800;
   }
   
+  .form-imput-buttom{
+    border: 3px solid white !important;
+    width: 30%;
+    height: 50px;
+    border-radius: 5px;
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-top:10px; 
+  }
+
+  .label-categories{
+    width: 100%;
+  }
+  .categories-form{
+    width:70%;
+    margin: 0 15%;
+    height: 30px;
+    text-align-last: center;
+    margin-bottom: 5px;
+  }

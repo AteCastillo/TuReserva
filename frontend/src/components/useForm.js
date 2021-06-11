@@ -1,6 +1,9 @@
 import {useState, useEffect} from 'react';
+import { useHistory } from 'react-router-dom';
 
-const useForm = (callback,validateInfo) => {
+const useForm = (validateInfo) => {
+    let history = useHistory();
+    const [submit, setSubmit] = useState(false);
     const [values,setValues] = useState({
         username:'',
         name:'',
@@ -9,13 +12,10 @@ const useForm = (callback,validateInfo) => {
         telephone:'',
         email: '',
         password: '',
-        confirmpassword: ''
+        confirmpassword: '',
+        categories: 'id-01'
     });
-
-
     const [errors, setErrors] = useState({});
-    // false because is not submitted yet:
-    const [isSubmitting, setIsSubmitting] = useState (false);
 
     const handleChange = e => {
         setValues({
@@ -24,36 +24,40 @@ const useForm = (callback,validateInfo) => {
         });
     };
     const handleSubmit = async e => {
+        
         e.preventDefault();
-
-        setErrors(validateInfo(values));
-
-        const res = await fetch(`http://localhost:5200/partners`, {
-            method: 'POST',
-            headers:{
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                username:values.username,
-                name:values.name,
-                description:values.description,
-                address:values.address,
-                phone: values.telephone,
-                email: values.email,
-                password: values.password,
-                category_id: 'id-01'
-            })
-            
-        })
-        const data = await res.json()
-        console.log(data)
+        setErrors(validateInfo(values)); 
+        setSubmit(true);
     };
 
 
     useEffect(
         () => {
-        if (Object.keys(errors).length === 0 && isSubmitting){
-            callback();
+        if (Object.keys(errors).length === 0 && submit === true){
+            const send_request = async () => {
+                const res = await fetch(`http://localhost:5200/partners`, {
+                method: 'POST',
+                headers:{
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    username:values.username,
+                    name:values.name,
+                    description:values.description,
+                    address:values.address,
+                    phone: values.telephone,
+                    email: values.email,
+                    password: values.password,
+                    category_id: values.categories
+                })
+            })
+            if (res.status === 201){
+                //history.push('/service')
+                const data = await res.json()
+                history.push({pathname: "/service", id:data})
+            }
+            }
+            send_request();
         }
     },
     [errors]

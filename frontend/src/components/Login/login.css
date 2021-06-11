@@ -1,7 +1,7 @@
 .login-container {
     margin: 100px auto;
     width: 1000px;
-    box-shadow: 0 5px 8px 0 rgba(196, 82, 82, 0.2), 0 7px 20px 0 rgba(204, 189, 189, 0.2);
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
     position: relative;
     border-radius: 10px;
     height: 400px;
@@ -22,16 +22,16 @@
   .form-content-left {
     background: linear-gradient(
       90deg,
-      rgb(223, 230, 235) 0%,
-      rgb(217, 231, 231) 100%
+      rgb(0, 232, 236) 0%,
+      rgb(0, 232, 236) 100%
     );
     border-radius: 10px 0 0 10px;
     position: relative;
   }
   
   .form-img {
-    width: 80%;
-    height: 80%;
+    width: 60%;
+    height: 60%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -74,22 +74,11 @@
   }
   
   .form h1 {
-    font-size: 16px;
+    font-size: 1rem;
     text-align: start;
     width: 80%;
     margin-bottom: 1rem;
     color: #fff;
-  }
-
-  .form h2 {
-    font-size: 14px;
-    color: #fff;
-    text-align: start;
-    width: 80%;
-    text-transform: lowercase;
-  }
-  .form h2::first-letter{
-    text-transform: capitalize;
   }
   
   .form-imputs {
@@ -141,7 +130,7 @@
     font-size: 1rem;
   }
   
-  .form-imput-btn:hover {
+  .form-input-btn:hover {
     cursor: pointer;
     background: linear-gradient(
       90deg,
@@ -151,17 +140,51 @@
     transition: all 0.4s ease-out;
   }
   
-  .form-imput-login {
-    font-size: 26px;
+  .form-input-login {
+    font-size: 0.8rem;
     margin-top: 10px;
-    color: rgb(8, 4, 4);
+    color: #fff;
     width: 80%;
     text-align: center;
   }
   
-  .form-imput-login a {
+  .form-input-login a {
     text-decoration: none;
-    color: #c72b2b;
-    font-weight: 800;
+    color: #27cdff;
+    font-weight: 600;
   }
-  
+
+  @media screen and (max-width: 1000px){
+	form{
+		width: 190px;
+	}
+
+	.form-content-right h2{
+        font-size: 2.4rem;
+        margin: 8px 0;
+	}
+
+	.form-imputs img{
+		width: 400px;
+	}
+}
+
+@media screen and (max-width: 900px){
+	.login-container{
+		grid-template-columns: 1fr;
+        width: 500px;
+        
+	}
+
+	.form-content-left{
+		display: none;
+	}
+
+	.form-img{
+		display: none;
+	}
+
+	.form-content-rigth{
+		justify-content: center;
+	}
+}
