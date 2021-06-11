@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { SliderData } from './SliderData';
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
 import './Slider.css';
 
-const ImageSlider = ( slides ) => {
+const ImageSlider = ( {slides} ) => {
   const [current, setCurrent] = useState(0);
   const length = slides.length;
 
@@ -18,6 +17,7 @@ const ImageSlider = ( slides ) => {
   if (!Array.isArray(slides) || slides.length <= 0) {
     return null;
   }
+  console.log(slides)
 
   return (
     <section className='slider'>
