@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 
-const useForm = (callback,validateInfo) => {
+const useForm2 = (partner_id, validateInfo) => {
+    const [submit, setSubmit] = useState(false)
     const [values,setValues] = useState({
         name:'',
         description:'',
@@ -23,8 +24,16 @@ const useForm = (callback,validateInfo) => {
         e.preventDefault();
 
         setErrors(validateInfo(values));
+        setSubmit(true);
+        
+    };
 
-        const res = await fetch(`http://localhost:5200/services/65d29319-4e86-439e-8bf2-525075810549`, {
+
+    useEffect(
+        () => {
+        if (Object.keys(errors).length === 0 && submit){
+            const send_data = async () => {
+            const res = await fetch(`http://localhost:5200/services`, {
             method: 'POST',
             headers:{
                 'Content-Type': 'application/json'
@@ -34,18 +43,12 @@ const useForm = (callback,validateInfo) => {
                 description:values.description,
                 price:values.price,
                 time: values.duration,
+                partner_id: partner_id,
             })
-    
         })
-        const data = await res.json()
-        console.log(data)
-    };
+            }
+            send_data();
 
-
-    useEffect(
-        () => {
-        if (Object.keys(errors).length === 0 && isSubmitting){
-            callback();
         }
     },
     [errors]
@@ -54,4 +57,4 @@ const useForm = (callback,validateInfo) => {
 };
 
 
-export default useForm;
+export default useForm2;

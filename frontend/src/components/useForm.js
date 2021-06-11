@@ -1,6 +1,8 @@
 import {useState, useEffect} from 'react';
+import { useHistory } from 'react-router-dom';
 
 const useForm = (validateInfo) => {
+    let history = useHistory();
     const [submit, setSubmit] = useState(false);
     const [values,setValues] = useState({
         username:'',
@@ -33,7 +35,7 @@ const useForm = (validateInfo) => {
         () => {
         if (Object.keys(errors).length === 0 && submit === true){
             const send_request = async () => {
-                await fetch(`http://localhost:5200/partners`, {
+                const res = await fetch(`http://localhost:5200/partners`, {
                 method: 'POST',
                 headers:{
                     'Content-Type': 'application/json'
@@ -49,6 +51,11 @@ const useForm = (validateInfo) => {
                     category_id: values.categories
                 })
             })
+            if (res.status === 201){
+                //history.push('/service')
+                const data = await res.json()
+                history.push({pathname: "/service", id:data})
+            }
             }
             send_request();
         }

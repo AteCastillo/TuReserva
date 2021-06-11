@@ -110,7 +110,7 @@ const FormSignup = () => {
                 {errors.confirmpassword && <p>{errors.confirmpassword}</p>}
            </div>
            <div className="form-imputs">
-                <label className="form-label">
+                <label className="form-label label-categories">
                     Category
                 </label>
                 <select name='categories' 

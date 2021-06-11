@@ -16,16 +16,9 @@ import {OrderMain} from './components/Order/OrderMain'
 
 
 function App(props) {
-  const [isLogged, setIsLogged] = useState(false);
-  const token = localStorage.getItem('tureserva_token');
-  useEffect(() => {
-    if (token !== null){
-      setIsLogged(true);
-    }
-  }, [])
   return (
    <Router>
-     <Navbar isLogged={isLogged}/>
+     <Navbar/>
        <Switch>
          <Route path="/about" component={About}/>
          <Route path="/register" component={Register}/>

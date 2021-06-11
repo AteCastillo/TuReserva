@@ -166,4 +166,13 @@
     margin-top:10px; 
   }
 
-  
+  .label-categories{
+    width: 100%;
+  }
+  .categories-form{
+    width:70%;
+    margin: 0 15%;
+    height: 30px;
+    text-align-last: center;
+    margin-bottom: 5px;
+  }

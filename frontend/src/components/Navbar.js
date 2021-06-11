@@ -8,11 +8,13 @@ import icon from './Main/user.png'
 import './logo.css';
 import "./Main/Main.css"
 import { MDBIcon } from "mdbreact";
+import token from '../App';
 
 
 
 export const Navbar = (props) => {
-  
+  let isLogged = false;
+  console.log(token)
   return (
     <div className="navbar-main cyan">
       <div className="container-navbar">
@@ -22,13 +24,13 @@ export const Navbar = (props) => {
       <form class="form-inline">
         <input class="form-control search-navbar mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input>
      </form>
-      </div>
+      </div>  
       </div>
      
-      {props.isLogged ? (
+      {isLogged ? (
         <div>
         <img src={icon} className="icon-user"/>
-        <p className="icon-msg">Welcome</p>
+        <p className="icon-msg">Logout</p>
         </div>
       ) : (
         <div className="login-navbar">

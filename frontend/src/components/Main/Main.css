@@ -121,9 +121,10 @@
 
 .icon-msg{
     font-size: 1rem;
+    font-weight: 800;
     margin-right: 20px;
     text-align: center;
-    color:black;
+    color:white;
 }
 
 

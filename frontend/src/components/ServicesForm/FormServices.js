@@ -1,11 +1,11 @@
 import React from 'react';
-import useForm from './useForm';
+import useForm2 from './useForm2';
 import validateInfo from './validateInfo';
 import './Services.css';
 
 
-const FormServices = ({ submitForm }) => {
-    const {handleChange, values, handleSubmit, errors} = useForm(submitForm,validateInfo);
+const FormServices = ({ partner_id }) => {
+    const {handleChange, values, handleSubmit, errors} = useForm2(partner_id, validateInfo);
     return (
        <div className="form-content-right">
            <form className="form" onSubmit={handleSubmit} noValidate>

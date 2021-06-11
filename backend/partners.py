@@ -20,6 +20,7 @@ def partner_signup():
     json_request = request.json
     json_request['wallet'] = 0
     print(json_request)
+    print(user_values)
     #Check for existence of all keys in a dict
     if all(k in json_request for k in user_values):
         for elem in user_values:
@@ -27,7 +28,7 @@ def partner_signup():
         register = manager.insert_register('Partners', values)
         if register is None:
             return jsonify({'msg':'Error'}), 403
-        return jsonify({'msg':'OK'}), 201
+        return jsonify(register['id']), 201
     else:
         return jsonify({"msg":"Miss some value"}), 400
 

@@ -46,8 +46,8 @@ const useFormLogin = (validateInfoLogin) => {
             //history.push('/')
             console.log('e')
             setResponse(true);
-            history.push("/");
-
+            
+            history.push('/')
         }
     };
     send_data();
