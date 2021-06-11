@@ -1,9 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {ServiceInfo} from "./ServiceInfo"
 import {Reservation} from "./Reservation";
-//import {CarouselPartner} from "./CarouselPartner";
-import { SliderData } from './SliderData';
-import ImageSlider from './ImageSlider';
 import "./Partner.css"
 
 export const PartnerMain = (props) => {
@@ -70,12 +67,13 @@ export const PartnerMain = (props) => {
     return (
         <>
         <div className="partner-container">
-            {/*<CarouselPartner images={elems.images}/>*/}
-           
-           
-            {/*<ImageSlider slides={elems.images} />*/}
-            <div className="partner-info">
             <h1 className="partner-name">{elems.name}</h1>
+            <div className='container'>
+                <img className='imgPartner1' src={`${elems.images[0]}`}/>
+                <img className='imgPartner' src={`${elems.images[1]}`}/>
+                <img className='imgPartner' src={`${elems.images[2]}`}/>
+            </div>
+            <div className="partner-info">
             <div className="partner-description">
             <p> {elems.description}</p>
             <p> <i class="fa fa-phone" aria-hidden="true"></i>   {elems.phone}</p>
