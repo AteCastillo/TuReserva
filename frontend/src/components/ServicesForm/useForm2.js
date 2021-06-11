@@ -11,8 +11,6 @@ const useForm2 = (partner_id, validateInfo) => {
 
 
     const [errors, setErrors] = useState({});
-    // false because is not submitted yet:
-    const [isSubmitting /*setIsSubmitting*/] = useState (false);
 
     const handleChange = e => {
         setValues({
@@ -22,12 +20,10 @@ const useForm2 = (partner_id, validateInfo) => {
     };
     const handleSubmit = async e => {
         e.preventDefault();
-
         setErrors(validateInfo(values));
         setSubmit(true);
         
     };
-
 
     useEffect(
         () => {

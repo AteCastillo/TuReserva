@@ -1,7 +1,7 @@
 import React from 'react';
 import useForm2 from './useForm2';
 import validateInfo from './validateInfo';
-import './Services.css';
+import './Services2.css';
 
 
 const FormServices = ({ partner_id }) => {
@@ -65,7 +65,7 @@ const FormServices = ({ partner_id }) => {
                 {errors.duration && <p>{errors.duration}</p>}
             </div>
 
-           <button className='form-imput-buttom' type="submit">Sign up</button>
+           <button className='form-imput-buttom button-submit' type="submit">Create</button>
            
            </form>
        </div>

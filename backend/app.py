@@ -55,9 +55,12 @@ def upload_image(partner_id):
     file = request.files['file'] 
     filename = secure_filename(file.filename)
     destination="/".join([target, filename])
+    print(destination)
     file.save(destination)
-    response = {"msg": "ok"}
-    return jsonify(response)
+    response = {}
+    return jsonify("{}/{}/{}".format(
+        "http://127.0.0.1:5200/get_image", partner_id, filename
+    ))
 
 @app.route('/get_image/<partner_id>/<image_route>', methods=['GET'], strict_slashes=False)
 def get_image(partner_id, image_route):
