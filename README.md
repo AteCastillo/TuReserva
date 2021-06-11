@@ -18,10 +18,52 @@
 <p>User experience<br>
 <img src="https://i.imgur.com/XFcoeBa.png" alt="Diagram"></p>
 <h2 id="architecture">Architecture</h2>
-<p>Back end<br>
-<img src="https://i.imgur.com/iUIuRVC.png" alt="architecture"><br>
-Front end</p>
-<h2 id="acknowledgments">Acknowledgments</h2>
+<p><img src="https://i.imgur.com/iUIuRVC.png" alt="architecture"></p>
+<h3 id="back-end">Back-end</h3>
+<h3 id="front-end">Front-end</h3>
+<h4 id="react-js">React Js</h4>
+<p>This project was bootstrapped with <a href="https://github.com/facebook/create-react-app">Create React App</a>.</p>
+<h5 id="components">Components</h5>
+
+<table>
+<thead>
+<tr>
+<th>Components</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Main</td>
+<td>Landing page everybody sees when entering the app</td>
+</tr>
+<tr>
+<td>Navbar</td>
+<td>Navigation bar that appears in every other component. It has: logo, login, sign up, logout and search buttom.</td>
+</tr>
+<tr>
+<td>Footer</td>
+<td>Foot bar that appears in every other component.</td>
+</tr>
+<tr>
+<td>Forms</td>
+<td>Component that contains all forms for sign up, login and adding services and images.</td>
+</tr>
+<tr>
+<td>Categories</td>
+<td>Contains the set of categories presented in Main page.</td>
+</tr>
+<tr>
+<td>Order</td>
+<td>Component for users to place orders.</td>
+</tr>
+<tr>
+<td>Partners</td>
+<td>Component shown after a user selects a category and a company, here she can see every service provided by an specific partner.</td>
+</tr>
+</tbody>
+</table><h2 id="acknowledgments">Acknowledgments</h2>
+<p>maybe</p>
 <blockquote>
 <p>Written with <a href="https://stackedit.io/">StackEdit</a>.</p>
 </blockquote>
