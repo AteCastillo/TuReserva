@@ -40,9 +40,7 @@ export const PartnerMain = (props) => {
         setNames(temp2);
         setPrices(temp3);
         setTimes(temp4);
-        
-        const div = document.querySelector(id);
-        document.getElementById(id).className = 'services-container';
+
 
     };
 
