@@ -121,9 +121,14 @@
   }
 
 .icon-user{
+    height: 90px;
+    width: 90px;
+    margin-right: 20px;
+}
+
+.icon-user:hover{
     height: 100px;
     width: 100px;
-    margin-right: 20px;
 }
 
 .icon-msg{

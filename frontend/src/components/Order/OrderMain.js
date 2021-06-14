@@ -10,11 +10,12 @@ export const OrderMain = (props) => {
     const [hour, setHour] = useState("")
     const [date, setDate] = useState(new Date())
     const [day, setDay] = useState(date.getDate())
-    const [month, setMonth] = useState(date.getMonth())
+    const [month, setMonth] = useState(date.getMonth() + 1)
     const [year, setYear] = useState(date.getFullYear())
 
     let history = useHistory()
     const handleClick = async () =>{
+        console.log(localStorage.getItem("tureserva_user"))
         const res = await fetch(`http://localhost:5200/orders`, {
                 method: 'POST',
                 headers:{
@@ -23,7 +24,7 @@ export const OrderMain = (props) => {
                 body: JSON.stringify({
                     amount:elems.total / 10,
                     date:`${year}-${month}-${day} ${hour}`,
-                    user_id: 'id-01',
+                    user_id: localStorage.getItem("tureserva_user"),
                     partner_id: elems.partner,
                     services: elems.services
                 })

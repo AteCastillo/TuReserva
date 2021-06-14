@@ -6,8 +6,8 @@ import {Link} from 'react-router-dom';
 import './login.css';
 
 
-const FormLogin = (props) => {
-    const {handleChange, values, handleSubmit, errors, response} = useFormLogin(validateInfoLogin);
+const FormLogin = ({login}) => {
+    const {handleChange, values, handleSubmit, errors} = useFormLogin(validateInfoLogin, login);
     
     return (
                 
