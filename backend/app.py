@@ -40,8 +40,8 @@ UPLOAD_FOLDER = '{}/upload/'.format(getcwd())
 def login():
     json_request = request.json
     if 'username' in json_request and 'password' in json_request:
-        msg = manager.login(json_request['username'], json_request['password'])
-        return jsonify({'msg':msg})
+        token, user = manager.login(json_request['username'], json_request['password'])
+        return jsonify({'msg':token, 'user':user})
     return jsonify({'msg':'bad request'}), 403
 
 

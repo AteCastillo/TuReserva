@@ -5,7 +5,8 @@ import './Services2.css';
 
 
 const FormServices = ({ partner_id }) => {
-    const {handleChange, values, handleSubmit, errors} = useForm2(partner_id, validateInfo);
+    const {handleChange, values, handleSubmit, 
+        errors} = useForm2(partner_id, validateInfo);
     return (
        <div className="form-content-right">
            <form className="form" onSubmit={handleSubmit} noValidate>
@@ -14,6 +15,7 @@ const FormServices = ({ partner_id }) => {
             <div className='form-imputs'>
                 <label className='form-label'>Name</label>
                 <input
+                    id="service-name"
                     className='form-imput'
                     type='text'
                     name='name'
@@ -29,6 +31,7 @@ const FormServices = ({ partner_id }) => {
             <div className='form-imputs'>
                 <label className='form-label'>Service description</label>
                 <input
+                    id="service-description"
                     className='form-imput'
                     type='text'
                     name='description'
@@ -42,6 +45,7 @@ const FormServices = ({ partner_id }) => {
             <div className='form-imputs'>
                 <label className='form-label'>Price</label>
                 <input
+                    id="service-price"
                     className='form-imput'
                     type='text'
                     name='price'
@@ -55,6 +59,7 @@ const FormServices = ({ partner_id }) => {
             <div className='form-imputs'>
                 <label className='form-label'>Duration</label>
                 <input
+                    id="service-duration"
                     className='form-imput'
                     type='text'
                     name='duration'

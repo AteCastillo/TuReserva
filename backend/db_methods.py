@@ -230,11 +230,9 @@ class DBManager:
             if query_rows is None:
                 return "Wrong Password"
             # Password in the database
-            print('a')
-            print(query_rows)
             db_pass = query_rows[2]
             if password == db_pass:
-                return "Token"
+                return "Token", query_rows[0]
         except:
             return "Something wrong"
         finally:

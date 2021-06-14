@@ -46,6 +46,10 @@ const useForm2 = (partner_id, validateInfo) => {
             send_data();
 
         }
+        document.getElementById('service-name').value = ""
+        document.getElementById('service-duration').value = ""
+        document.getElementById('service-price').value = ""
+        document.getElementById('service-description').value = ""
     },
     [errors]
     );

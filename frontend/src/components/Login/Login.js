@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import FormLogin from './FormLogin';
 import './login.css';
 
-export const Login = () => {
+export const Login = ({login}) => {
     return (
     <>
     <div className='login-container'>
@@ -14,7 +14,7 @@ export const Login = () => {
         </div>
      
             {/* if is not submitted, display form, else success:*/}
-            <FormLogin/>
+            <FormLogin login={login}/>
         </div>
     </>
     );
