@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { OrderItem } from './OrderItem';
 import { useHistory } from "react-router-dom";
-import 'reactjs-popup/dist/index.css';
+//import 'reactjs-popup/dist/index.css';
 
 export const OrderInfo = ({names, 
     services, total, times,prices, partner}) =>{
