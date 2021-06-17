@@ -1,4 +1,4 @@
-from flask import Flask, json, jsonify,request, send_file
+from flask import Flask, json, jsonify, request, send_file
 from flask_cors import CORS, cross_origin
 from flasgger import Swagger
 from db_methods import DBManager
