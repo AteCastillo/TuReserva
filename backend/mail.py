@@ -24,7 +24,7 @@ def send_mail_reserve (user_name, user_email, partner_name, service_name, servic
 	msg = MIMEMultipart()
 	email = 'tureservamvp@gmail.com'
 	password = getenv('PASSWORD_TR')
-	msg = MIMEText('Hello, {}!\n\nYour reservation for {} with {} is confirmed for {} at {}.\n\nThe service(s)\
+	msg = MIMEText('Hello, {}!\n\nYour reservation for {} with {} is confirmed for {} at {}.\n\nThe service(s) \
 total price is ${}. A down payment of ${} has been debited from your account for the booking of the service(s).\n\n\
 Thank you for being part of TuReserva!\n\nTuReserva Team'.format(user_name, service_name, partner_name, service_date, service_hour, \
 	service_price, service_pay))
