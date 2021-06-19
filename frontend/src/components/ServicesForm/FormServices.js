@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useForm2 from './useForm2';
 import validateInfo from './validateInfo';
 import './Services2.css';
+import {useModal} from "../Modals/useModal"
+import Modal from "../Modals/Modal"
 
 
 const FormServices = ({ partner_id }) => {
+    const [button, setButton] = useState(false)
     const {handleChange, values, handleSubmit, 
-        errors} = useForm2(partner_id, validateInfo);
+        errors} = useForm2(partner_id, validateInfo, setButton);
+    const [isOpenModal, openModal, closeModal] = useModal(false, null)
+    
+
+    
     return (
        <div className="form-content-right">
            <form className="form" onSubmit={handleSubmit} noValidate>
@@ -73,6 +80,13 @@ const FormServices = ({ partner_id }) => {
            <button className='form-imput-buttom button-submit' type="submit">Create</button>
            
            </form>
+           <div className='btn-step'>
+            {button && (<button className="button-step" onClick={openModal}> Finish</button>)}
+         </div>
+         <Modal isOpen={isOpenModal} closeModal={closeModal}>
+            <h3>Notification</h3>
+            <p>Your Account was created successfully</p>
+        </Modal>
        </div>
     );
 };

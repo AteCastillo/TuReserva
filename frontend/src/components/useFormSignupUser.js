@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 
-const useFormSignupUser = (validateInfo) => {
+const useFormSignupUser = (validateInfo, openModal) => {
     const [values,setValues] = useState({
         username:'',
         email: '',
@@ -32,7 +32,7 @@ const useFormSignupUser = (validateInfo) => {
         () => {
         if (Object.keys(errors).length === 0 && submitting){
             const send_request = async () => {
-            await fetch(`http://localhost:5200/users`, {
+            const res = await fetch(`http://localhost:5200/users`, {
             method: 'POST',
             headers:{
                 'Content-Type': 'application/json'
@@ -43,6 +43,10 @@ const useFormSignupUser = (validateInfo) => {
                 password: values.password,
             })
         })
+        const data = await res.json()
+        localStorage.setItem('tureserva_token', "Token");
+        localStorage.setItem('tureserva_user', data.user)
+        openModal()
     }
     send_request();
     }

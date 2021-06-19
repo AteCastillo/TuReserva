@@ -7,26 +7,7 @@ user = Blueprint('user', __name__)
 manager = DBManager()
 
 
-# User SignUp
-@user.route('/users', methods=['POST'], strict_slashes=False)
-@swag_from('documentation/users/post_user.yml')
-def user_signup():
-    """Create a user"""
-    values = []
-    user_values = ModelManager('Users').values
-    user_values.pop(0)
-    json_request = request.json
-    json_request['cash'] = 0
-    #Check for existence of all keys in a dict
-    if all(k in json_request for k in user_values):
-        for elem in user_values:
-            values.append(json_request[elem])
-        register = manager.insert_register('Users', values)
-        if register is None:
-            return jsonify({'msg':'Error'}), 403
-        return jsonify({'msg':'OK'}), 201
-    else:
-        return jsonify({"msg":"Miss some value"}), 400
+
 
 # Get user info
 @user.route('/users/<user_id>', methods=['GET'])

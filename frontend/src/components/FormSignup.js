@@ -6,6 +6,7 @@ import './Form.css';
 
 const FormSignup = () => {
     const {handleChange, values, handleSubmit, errors} = useForm(validateInfo);
+    
     return (
        <div className="form-content-right">
            <form className="form" onSubmit={handleSubmit} noValidate>

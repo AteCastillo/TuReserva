@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { OrderItem } from './OrderItem';
 import 'reactjs-popup/dist/index.css';
+import Modal from "../Modals/Modal"
+import {Login} from "../Login/Login"
 
 export const OrderInfo = ({names, handleClick,
     total, times,prices}) =>{
-   
+
+
+
     return (
         <div className="orderinfo-container">
         <div>
@@ -19,6 +23,7 @@ export const OrderInfo = ({names, handleClick,
         <p className="total-order">Total ${total / 10}</p>
         <button className='button-order' onClick={handleClick}>Reserve</button>
         </div>
+        
         </div>
     )
 }

@@ -2,7 +2,9 @@ import React, {useState, useEffect} from 'react';
 import "./Order.css"
 import { OrderInfo } from './OrderInfo';
 import DateTimePicker from "./DateTimePicker";
-import { useHistory } from "react-router-dom";
+import {useModal} from "../Modals/useModal"
+import Modal from "../Modals/Modal"
+//import {Login} from "../Login/Login"
 
 
 export const OrderMain = (props) => {
@@ -12,8 +14,17 @@ export const OrderMain = (props) => {
     const [day, setDay] = useState(date.getDate())
     const [month, setMonth] = useState(date.getMonth() + 1)
     const [year, setYear] = useState(date.getFullYear())
+    // For Modal
+    const [isOpenModal, openModal, closeModal] = useModal(false, null)
+    /* [isOpenModal2, setIsOpenModal2] = useState(false)
+    const openModal2 = () => setIsOpenModal2(true)
+    const closeModal2 = () => setIsOpenModal2(false)
+    const [isLogged, setIsLogged] = useState(false)
 
-    let history = useHistory()
+    if (localStorage.getItem('tureserva_token') !== null){
+        setIsLogged(true)
+    }*/
+    
     const handleClick = async () =>{
         console.log(localStorage.getItem("tureserva_user"))
         const res = await fetch(`http://localhost:5200/orders`, {
@@ -31,7 +42,7 @@ export const OrderMain = (props) => {
             })
             if (res.status === 201){
 
-                history.push('/')
+                openModal()
             }
     }
 
@@ -63,6 +74,15 @@ export const OrderMain = (props) => {
         <OrderInfo className="orderinfo-container" names={elems.names}
         quantity={elems.quantity} total={elems.total}
         prices={elems.prices} times={elems.times} handleClick={handleClick}/>
+        <Modal isOpen={isOpenModal} closeModal={closeModal}>
+        <h3>Notification</h3>
+        <p>Your reservation was made successfully</p>
+        </Modal>
+        {/*!isLogged && (
+        <Modal isOpen={isOpenModal2} closeModal={closeModal2}>
+        <Login/>
+        </Modal>
+        )*/}
         </div>
         
         

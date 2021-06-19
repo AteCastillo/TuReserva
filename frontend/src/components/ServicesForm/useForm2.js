@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 
-const useForm2 = (partner_id, validateInfo) => {
+const useForm2 = (partner_id, validateInfo, setButton) => {
     const [submit, setSubmit] = useState(false)
     const [values,setValues] = useState({
         name:'',
@@ -50,6 +50,7 @@ const useForm2 = (partner_id, validateInfo) => {
         document.getElementById('service-duration').value = ""
         document.getElementById('service-price').value = ""
         document.getElementById('service-description').value = ""
+        setButton(true)
     },
     [errors]
     );

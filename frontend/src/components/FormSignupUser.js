@@ -3,10 +3,14 @@ import useFormSignupUser from './useFormSignupUser';
 import validateInfoSignupUser from './validateInfoSignupUser';
 import {Link} from 'react-router-dom';
 import './Formuser.css';
+import {useModal} from "./Modals/useModal"
+import Modal from "./Modals/Modal"
 
 
-const FormSignupUser = () => {
-    const {handleChange, values, handleSubmit, errors} = useFormSignupUser(validateInfoSignupUser);
+const FormSignupUser = ({login}) => {
+    const [isOpenModal, openModal, closeModal] = useModal(false, login)
+    const {handleChange, values, handleSubmit, errors} = useFormSignupUser(validateInfoSignupUser, login, openModal);
+    
     return (
        <div className="form-content-right">
            <form className="form" onSubmit={handleSubmit} noValidate>
@@ -59,6 +63,10 @@ const FormSignupUser = () => {
                Already have an account? Login <Link className='form-imput-link' to="/login">here</Link>
            </span>
            </form>
+           <Modal isOpen={isOpenModal} closeModal={closeModal}>
+            <h3>Notification</h3>
+            <p>Your Account was created successfully</p>
+        </Modal>
        </div>
     );
 };
