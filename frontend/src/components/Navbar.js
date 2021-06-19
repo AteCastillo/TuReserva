@@ -1,7 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import './Navbar.css';
-import logo from './logo3.png';
+//import {Logout} from './Logout';
+import logo from './logo4.png';
+//import './Navbar.css';
 import icon from './Main/user.png'
 import './logo.css';
 import "./Main/Main.css"
