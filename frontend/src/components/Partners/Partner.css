@@ -111,12 +111,14 @@
     align-items: center;
     width: 100%;
     height: 120px;
-    background-color: rgba(199, 196, 196, 0.961);
+    background-color: #01bcd4;
 }
 
 .reservation-partner p{
     margin-top: 10px;
     font-size: 1.5rem;
+    color: white;
+    font-weight: bolder;
 }
 
 .reservation-button{

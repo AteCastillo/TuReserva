@@ -64,8 +64,10 @@ const FormSignupUser = ({login}) => {
            </span>
            </form>
            <Modal isOpen={isOpenModal} closeModal={closeModal}>
-            <h3>Notification</h3>
-            <p>Your Account was created successfully</p>
+            
+            <h4 style={{textAlign: 'center'}}>Your Account was created successfully!</h4>
+            <br/>
+            <p style={{textAlign: 'right'}}> For more information, check your email.</p>
         </Modal>
        </div>
     );

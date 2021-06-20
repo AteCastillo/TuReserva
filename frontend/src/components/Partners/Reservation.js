@@ -11,7 +11,7 @@ export const Reservation = ({quantity, total,
         <Link to={{pathname: "/order", services:services, names:names, 
         quantity:quantity, total:total, times:times, prices:prices,
         partner:partner}} 
-        className="reservation-button">Reserve</Link>
+        className="reservation-button"><b>Reserve</b></Link>
         </p>
     </div>
     );
