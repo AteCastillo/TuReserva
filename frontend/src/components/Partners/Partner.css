@@ -118,7 +118,7 @@
     margin-top: 10px;
     font-size: 1.5rem;
     color: white;
-    font-weight: bolder;
+   
 }
 
 .reservation-button{
@@ -138,6 +138,7 @@
     display: absolute;
     margin:0 auto 10px auto;
     font-style: italic;
+    font-weight:500;
 }
 
 .container {

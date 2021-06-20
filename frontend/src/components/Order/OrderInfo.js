@@ -8,7 +8,9 @@ export const OrderInfo = ({names, handleClick,
     return (
         <div className="orderinfo-container">
         <div>
-        <h1 className="order-title"> Reservation Info</h1>
+            <br/>
+            <br/>
+        <h4 className="order-title"> Your reservations:</h4>
         {names.map((el, index) => (
          
             <OrderItem time={times[index]} price={prices[index]} 
