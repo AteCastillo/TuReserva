@@ -30,8 +30,9 @@
   }
   .form-content-left h1{
     color: #01bcd4;
-    margin-top: 25px !important;  
-    margin-left: 80px;
+    margin-top: 35px !important;  
+    margin-left: 70px;
+    margin-right: 70px;
     font-size: 1.5rem;
 }
   
@@ -182,9 +183,15 @@
     justify-content: space-between;
     align-items: center;
   }
+  .container-button-upload{
+      margin-left: 50%;
+      margin-right: 50%;
+
+  }
   .prev-images{
     width:100%;
     height: 450px;
+    margin-left: 30px;
   }
 
   .img-upload{
@@ -198,7 +205,7 @@
   }
 
   .title-upload{
-    text-align: left;
+    text-align: center;
     font-weight: bolder;
     text-transform: lowercase;
   }
@@ -250,8 +257,9 @@
 }
 
 .upload-button{
-  margin-left: 20%;
+  margin-left: 40%;
   margin-bottom: 15%;
+  
 }
 
 .msg-created{

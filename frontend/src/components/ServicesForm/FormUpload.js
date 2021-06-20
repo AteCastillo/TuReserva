@@ -42,7 +42,7 @@ const FormUpload = ({partner_id}) => {
             </div>
             </div>
         </div>
-          <div className="container-button-upload">
+          <div className="container-button-upload"> 
             <input ref={(ref) => {uploadInput = ref}} type="file"
             style={{color: "transparent"}}
             onChange={handleUploadImage} 
