@@ -28,17 +28,17 @@ const FormUpload = ({partner_id}) => {
         <div  className='formupload-container'>
             <div>
             <div className="images-title">
-            <h1 className='title-upload'>Upload Images</h1>
+            <h1 className='title-upload'>Upload some images of the services you offer:</h1>
             <div className='prev-images'>
                 <img src={total >= 1 ? images[0]:upload} 
                 alt="" className="img-upload"
-                style={{width:"200px", height:"200px"} }></img>
+                style={{width:"170px", height:"170px"} }></img>
                 <img src={total >= 2 ? images[1]:upload}
                 alt="" className="img-upload"
-                style={{width:"200px", height:"200px"} }></img>
+                style={{width:"170px", height:"170px"} }></img>
                 <img src={total >= 3 ? images[2]:upload}
                 alt="" className="img-upload"
-                style={{width:"200px", height:"200px"} }></img>
+                style={{width:"170px", height:"170px"} }></img>
             </div>
             </div>
         </div>

@@ -191,12 +191,13 @@
   }
 
   .title-upload{
-    
-    text-align: center;
+    text-align: left;
     font-weight: bolder;
-    
+    text-transform: lowercase;
   }
-
+  .title-upload::first-letter{
+    text-transform: capitalize;
+  }
   .button-submit{
     margin-top:20px;
   }
@@ -246,5 +247,5 @@
 }
 
 .msg-created{
-  color:skyblue;
+  color:#01bcd4;
 }

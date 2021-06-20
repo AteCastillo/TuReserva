@@ -157,12 +157,12 @@
   }
   
   .form-imput-buttom{
-    border: 3px solid white !important;
+    border: none;
     width: 30%;
     height: 50px;
     border-radius: 5px;
     font-size: 1.3rem;
-    font-weight: 800;
+    font-weight: 500;
     margin-top:10px; 
   }
 
