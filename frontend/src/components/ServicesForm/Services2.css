@@ -28,6 +28,12 @@
     border-radius: 10px 0 0 10px;
     position: relative;
   }
+  .form-content-left h1{
+    color: #01bcd4;
+    margin-top: 25px !important;  
+    margin-left: 80px;
+    font-size: 1.5rem;
+}
   
   .newImage {
     width: 80%;
@@ -80,6 +86,7 @@
     text-align: start;
     width: 80%;
     margin-bottom: 1rem;
+    margin-left: 10px;
     color: #fff;
   }
 

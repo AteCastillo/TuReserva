@@ -16,6 +16,7 @@ export const ServiceForm = (props) => {
             {/* if is not submitted, display form, else success:*/}
             <FormServices partner_id={id}/>
         </div>
+        <br/>
         <Steps first="#b0b0ab" second="#01bcd4" button={true}/>
     </>
     );
