@@ -44,9 +44,13 @@ const useFormSignupUser = (validateInfo, openModal) => {
             })
         })
         const data = await res.json()
-        localStorage.setItem('tureserva_token', "Token");
-        localStorage.setItem('tureserva_user', data.user)
-        openModal()
+        if (res.status == 201){
+            localStorage.setItem('tureserva_token', "Token");
+            localStorage.setItem('tureserva_user', data.user);
+            openModal()
+        }
+        
+        
     }
     send_request();
     }

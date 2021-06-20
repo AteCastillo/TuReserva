@@ -9,7 +9,7 @@ import Modal from "./Modals/Modal"
 
 const FormSignupUser = ({login}) => {
     const [isOpenModal, openModal, closeModal] = useModal(false, login)
-    const {handleChange, values, handleSubmit, errors} = useFormSignupUser(validateInfoSignupUser, login, openModal);
+    const {handleChange, values, handleSubmit, errors} = useFormSignupUser(validateInfoSignupUser, openModal);
     
     return (
        <div className="form-content-right">

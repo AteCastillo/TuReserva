@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import useForm2 from './useForm2';
 import validateInfo from './validateInfo';
 import './Services2.css';
@@ -8,11 +8,20 @@ import Modal from "../Modals/Modal"
 
 const FormServices = ({ partner_id }) => {
     const [button, setButton] = useState(false)
+    const [msg, setMsg] = useState(false)
     const {handleChange, values, handleSubmit, 
-        errors} = useForm2(partner_id, validateInfo, setButton);
+    errors} = useForm2(partner_id, validateInfo, setButton, setMsg);
     const [isOpenModal, openModal, closeModal] = useModal(false, null)
     
-
+    useEffect(() => {
+        setTimeout(function(){
+            if (msg === true){setMsg(false)}
+            document.getElementById('service-name').value = ""
+            document.getElementById('service-duration').value = ""
+            document.getElementById('service-price').value = ""
+            document.getElementById('service-description').value = ""
+        }, 2000);
+    }, [msg])
     
     return (
        <div className="form-content-right">
@@ -76,6 +85,7 @@ const FormServices = ({ partner_id }) => {
                 />
                 {errors.duration && <p>{errors.duration}</p>}
             </div>
+            {msg && (<p className="msg-created"> Your service was created</p>)}
 
            <button className='form-imput-buttom button-submit' type="submit">Create</button>
            

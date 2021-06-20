@@ -2,6 +2,7 @@ from db_methods import DBManager
 from models import ModelManager
 from flasgger.utils import swag_from
 from flask import Blueprint, jsonify, request
+from mail import send_mail_signup
 
 partner = Blueprint('partner', __name__)
 manager = DBManager()
@@ -28,6 +29,7 @@ def partner_signup():
         register = manager.insert_register('Partners', values)
         if register is None:
             return jsonify({'msg':'Error'}), 403
+        #send_mail_signup(json_request['username'], json_request['email'])
         return jsonify(register['id']), 201
     else:
         return jsonify({"msg":"Miss some value"}), 400
