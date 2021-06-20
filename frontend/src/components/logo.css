@@ -6,7 +6,10 @@
     pointer-events: none;
     position: relative;
     left: 0px;
+    margin-bottom: 10px;
+    
 }
+
 
 @media (prefers-reduced-motion: no-preference) {
     .navbar-logo {
@@ -21,7 +24,7 @@
     transform: rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(90deg);
   }
 }
 
