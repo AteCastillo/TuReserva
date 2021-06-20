@@ -118,8 +118,8 @@ const FormSignup = () => {
                 className='categories-form' value={values.categories} 
                 onChange={handleChange} defaultValue="">
                     <option value='id-01'>Stetic</option>
-                    <option value='id-02'>Massagge</option>
-                    <option value='id-03'>Clean</option>
+                    <option value='id-02'>Massages</option>
+                    <option value='id-03'>Cleaning</option>
                </select>
                {errors.category && <p>{errors.category}</p>}
 
