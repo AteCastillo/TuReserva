@@ -58,6 +58,7 @@
     border-radius: 0 10px 10px 0;
     position: relative;
     background: linear-gradient(90deg, rgb(40, 40, 40) 0%, rgb(17, 17, 17) 100%);
+    
   }
   
   .form {
@@ -71,6 +72,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-bottom:10px;
   }
   
   .form h1 {
@@ -223,9 +225,9 @@
 }
 
 .button-step{
-  width:60px;
+  width:100px;
   height: 60px;
-  border-radius: 50%;
+  border-radius: 5px;
   border: 3px solid rgba(0,0,0,0.4);
   margin-left:10px;
   background-color:#01bcd4;
@@ -235,5 +237,14 @@
   font-weight: 900;
   bottom:0;
   right: 0;
-  margin-right: 20%;
+  margin-right: 5%;
+}
+
+.upload-button{
+  margin-left: 20%;
+  margin-bottom: 15%;
+}
+
+.msg-created{
+  color:skyblue;
 }

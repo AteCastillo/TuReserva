@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 
-const useForm2 = (partner_id, validateInfo) => {
+const useForm2 = (partner_id, validateInfo, setButton, setMsg) => {
     const [submit, setSubmit] = useState(false)
     const [values,setValues] = useState({
         name:'',
@@ -41,14 +41,22 @@ const useForm2 = (partner_id, validateInfo) => {
                 time: values.duration,
                 partner_id: partner_id,
             })
+            
         })
+        if (res.status === 201){
+            setButton(true)
+            setMsg(true)
+        }
+        
             }
             send_data();
 
         }
+        
     },
     [errors]
     );
+
     return { handleChange, values, handleSubmit, errors };
 };
 

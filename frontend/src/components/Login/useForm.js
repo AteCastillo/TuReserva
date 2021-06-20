@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 import {useHistory} from "react-router-dom";
 
-const useFormLogin = (validateInfoLogin) => {
+const useFormLogin = (validateInfoLogin, login) => {
     let history = useHistory();
     const [values,setValues] = useState({
         username:'', 
@@ -10,7 +10,6 @@ const useFormLogin = (validateInfoLogin) => {
     const [submitting, setSubmitting] = useState(false);
 
     const [errors, setErrors] = useState({});
-    const [response, setResponse] = useState(false);
     const handleChange = (e) => {
         setValues({
             ...values,
@@ -40,14 +39,13 @@ const useFormLogin = (validateInfoLogin) => {
             
         })
         const data = await res.json()
-        console.log(data)
+        console.log(data.user)
         if (data !== "Wrong Password"){
             localStorage.setItem('tureserva_token', "Token");
-            //history.push('/')
-            console.log('e')
-            setResponse(true);
-            
+            localStorage.setItem('tureserva_user', data.user)
+            login(data.user)
             history.push('/')
+            
         }
     };
     send_data();
@@ -55,7 +53,7 @@ const useFormLogin = (validateInfoLogin) => {
     },
     [errors]
     );
-    return { handleChange, values, handleSubmit, errors, response};
+    return { handleChange, values, handleSubmit, errors};
 };
 
 

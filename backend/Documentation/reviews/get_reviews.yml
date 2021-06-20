@@ -32,6 +32,3 @@ responses:
               stars:
                 type: string
                 description: the puntuation of the review
-            self.values = ['id', 'description', 
-                          'stars', 'date',
-                          'user_id', 'partner_id']

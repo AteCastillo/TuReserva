@@ -8,13 +8,11 @@ import icon from './Main/user.png'
 import './logo.css';
 import "./Main/Main.css"
 import { MDBIcon } from "mdbreact";
-import token from '../App';
 
 
 
-export const Navbar = (props) => {
-  let isLogged = false;
-  console.log(token)
+
+export const Navbar = ({isLogged, logout}) => {
   return (
     <div className="navbar-main cyan">
       <div className="container-navbar">
@@ -29,7 +27,7 @@ export const Navbar = (props) => {
      
       {isLogged ? (
         <div>
-        <img src={icon} className="icon-user"/>
+        <img src={icon} className="icon-user" onClick={logout}/>
         <p className="icon-msg">Logout</p>
         </div>
       ) : (

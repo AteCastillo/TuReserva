@@ -1,4 +1,4 @@
-from flask import Flask, json, jsonify,request, send_file
+from flask import Flask, jsonify,request, send_file
 from flask_cors import CORS, cross_origin
 from flasgger import Swagger
 from db_methods import DBManager
@@ -12,8 +12,6 @@ from orders import order
 from categories import category
 from os import getcwd, mkdir, path
 from werkzeug.utils import secure_filename
-from PIL import Image
-import base64
 
 
 app = Flask(__name__)
@@ -33,15 +31,19 @@ app.config['SWAGGER'] = {
 }
 Swagger(app)
 manager = DBManager()
+#key = Fernet.generate_key()
+#fernet = Fernet(key)
 UPLOAD_FOLDER = '{}/upload/'.format(getcwd())
 
 @app.route('/login', methods=['POST'], strict_slashes=False)
 @cross_origin(supports_credentials=True)
 def login():
     json_request = request.json
-    if 'username' in json_request and 'password' in json_request:
-        msg = manager.login(json_request['username'], json_request['password'])
-        return jsonify({'msg':msg})
+    if ('username' in json_request and 'password' in json_request):
+        #json_request['password'] = manager.encrypt_password(json_request['password'], fernet)
+        print(json_request)
+        token, user = manager.login(json_request['username'], json_request['password'])
+        return jsonify({'msg':token, 'user':user})
     return jsonify({'msg':'bad request'}), 403
 
 
@@ -68,6 +70,8 @@ def get_image(partner_id, image_route):
     filename = "{}/{}/{}".format(UPLOAD_FOLDER,
                partner_id, image_route)
     return send_file(filename)
+
+
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port='5200', debug='True')

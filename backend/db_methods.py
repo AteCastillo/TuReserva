@@ -4,6 +4,8 @@ from os import getcwd, listdir
 import json
 import MySQLdb
 from uuid import uuid4
+
+
 """Method to manage Information in the database"""
 
 
@@ -14,6 +16,7 @@ class DBManager:
     __development = 'db_config'
     __testing = 'db_test_config'
     __db_config = '{}/.{}.json'.format(getcwd(), __testing)
+    
 
     def string_values(self, values):
         """Return an string like (%s, %s...)
@@ -142,8 +145,6 @@ class DBManager:
         {elements:[{row1},{row2}]}"""
         select_fields = "*" if fields is None else self.fields_corrector(table, fields)
         sentence = "SELECT {} FROM `{}`;".format(select_fields, table)
-        print(sentence)
-        print(fields)
         values = []
         model = ModelManager(table)
         conn = self.create_connection()
@@ -230,11 +231,11 @@ class DBManager:
             if query_rows is None:
                 return "Wrong Password"
             # Password in the database
-            print('a')
-            print(query_rows)
+            
             db_pass = query_rows[2]
+            print(db_pass)
             if password == db_pass:
-                return "Token"
+                return "Token", query_rows[0]
         except:
             return "Something wrong"
         finally:
@@ -293,11 +294,6 @@ class DBManager:
         of a partner"""
         sentence = "SELECT (username, "
         return None
-    
-    def images_of_partner(self, partner_id):
-        """Return a list with all images
-        of the partner"""
-        pass
 
     def list_all_images(self, partner_id):
         """Return a list with the routes of
@@ -309,4 +305,10 @@ class DBManager:
             routes.append("http://127.0.0.1:5200/get_image/{}/{}".format(
                partner_id, image))
         return routes
-        
+
+    def encrypt_password(self, password, fernet):
+        """This function covert an string in
+        a hash sha256"""
+        encrypted = fernet.encrypt(password.encode())
+        return encrypted.decode('ascii')
+    

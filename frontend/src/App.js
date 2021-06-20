@@ -15,16 +15,26 @@ import Main from "./components/Partners/Test"
 import {OrderMain} from './components/Order/OrderMain'
 
 
-function App(props) {
+function App() {
+  const [isLogged, setIsLogged] = useState(false)
+  const login  = (user) => {
+    setIsLogged(true)
+  }
+  const logout = () => 
+  {
+    localStorage.removeItem("tureserva_token")
+    localStorage.removeItem("tureserva_user")
+    setIsLogged(false)
+  }
   return (
    <Router>
-     <Navbar/>
+     <Navbar isLogged={isLogged} logout={logout}/>
        <Switch>
          <Route path="/about" component={About}/>
          <Route path="/register" component={Register}/>
          <Route path='/signuppartner' component={SignupPartner}/>
-         <Route path='/signupuser' component={SignupUser}/>
-         <Route path='/login' component={Login}/>
+         <Route path='/signupuser' component={() => <SignupUser login={login}/>}/>
+         <Route path='/login' component={() => <Login login={login} />}/>
          <Route path="/categories" component={Categories}/>
          <Route path="/partner" component={PartnerMain}/>
          <Route path='/service' component={ServiceForm}/>

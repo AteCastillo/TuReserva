@@ -2,10 +2,10 @@ from db_methods import DBManager
 from models import ModelManager
 from flasgger.utils import swag_from
 from flask import Blueprint, jsonify, request
+from mail import send_mail_signup
 
 user = Blueprint('user', __name__)
 manager = DBManager()
-
 
 # User SignUp
 @user.route('/users', methods=['POST'], strict_slashes=False)
@@ -19,14 +19,17 @@ def user_signup():
     json_request['cash'] = 0
     #Check for existence of all keys in a dict
     if all(k in json_request for k in user_values):
+        #json_request['password'] = manager.encrypt_password(json_request['password'], fernet)
         for elem in user_values:
             values.append(json_request[elem])
         register = manager.insert_register('Users', values)
         if register is None:
             return jsonify({'msg':'Error'}), 403
-        return jsonify({'msg':'OK'}), 201
+        send_mail_signup(json_request['username'], json_request['email'])
+        return jsonify({'msg':'OK', 'user':register['id']}), 201
     else:
         return jsonify({"msg":"Miss some value"}), 400
+
 
 # Get user info
 @user.route('/users/<user_id>', methods=['GET'])

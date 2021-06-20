@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {ServiceInfo} from "./ServiceInfo"
 import {Reservation} from "./Reservation";
 import "./Partner.css"
+import { DiscussionEmbed } from "disqus-react"
 
 export const PartnerMain = (props) => {
     const [services, setServices] = useState([])
@@ -13,7 +14,14 @@ export const PartnerMain = (props) => {
     const [prices, setPrices] = useState([])
     const [total, setTotal] = useState(0)
     const [quantity, setQuantity] = useState(0)
-
+    //Disqus Config
+    const disqusShortname = "comments-react"
+    const disqusConfig = {
+        identifier:elems.id,
+        title: elems.name,
+        url: "http://127.0.0.1:3000/partners" +  elems.id,
+        language: "es_MX"
+    }
     const contar = (cant) => setQuantity(quantity + cant)
     const add = (price, id, name, time) => {
         setTotal(total + price);
@@ -40,9 +48,7 @@ export const PartnerMain = (props) => {
         setNames(temp2);
         setPrices(temp3);
         setTimes(temp4);
-        
-        const div = document.querySelector(id);
-        document.getElementById(id).className = 'services-container';
+
 
     };
 
@@ -98,13 +104,17 @@ export const PartnerMain = (props) => {
                 )) 
             )}
         </div>
-  
+        
+   
     </div>
     {total !== 0 && <Reservation className="reservation" 
                         total={total} quantity={quantity}
                         services={select} names={names}
                         times={times} prices={prices} 
                         partner={elems.id}/>}
+     <DiscussionEmbed shortname={disqusShortname}
+      config={disqusConfig}/>
     </>
+
     )
 }

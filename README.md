@@ -9,14 +9,25 @@
 <h3 id="the-team">The team</h3>
 <p><a href="https://github.com/MatiasAcosta567">Matias Acosta</a> - Software engineer passionate about back-end and blockchain. He is the project’s architect; in charge of the API endpoints, data modeling and performance.<br>
 <a href="https://github.com/parbilla">Pedro Arbilla</a> - Economist, actor and software developer. He feels very comfortable dealing with logic and is the mathematician of the team, so he provided the best support to both front-end and back-end.<br>
-<a href="https://github.com/AteCastillo">Atenea Castillo</a> - Economist, historian, globetrotter and software developer. She is the front-end expert, focusing in accessibility, interactive elements and user-interface.</p>
+<a href="https://github.com/AteCastillo">Atenea Castillo</a> - Economist, historian, globetrotter and software developer. She is the front-end leader, focusing in accessibility, interactive elements and user-interface.</p>
+<h3 id="features">Features</h3>
+<ul>
+<li>Users can login and book services among the different categories and<br>
+partners available.</li>
+<li>Service providers can integrate and offer different products to be booked.</li>
+<li>Services are described, priced and their duration established.</li>
+<li>Users and partners have their own wallet.</li>
+<li>Users and partners can make reviews for every interaction.</li>
+</ul>
 <h3 id="blogs">Blogs</h3>
 <h2 id="take-a-tour">Take a tour</h2>
 <p>User experience<br>
 <img src="https://i.imgur.com/XFcoeBa.png" alt="Diagram"></p>
 <h2 id="architecture">Architecture</h2>
+<p>Project architecture shows an end to end map (client - server) with the data flow for the system and shows interactions between application components.</p>
 <p><img src="https://i.imgur.com/iUIuRVC.png" alt="architecture"></p>
 <h3 id="back-end">Back-end</h3>
+<p>The project was developed locally. Given that it is an MVP, we decided to focus on the functionalities of the API, and once we have the project well oiled, think  to  put it into operation remotely in the near future. The API was programmed in Python, and we used the Flask framework to connect the data to the dynamic web, and the MySQLdb interface for connecting to the MySQL database.</p>
 <h3 id="front-end">Front-end</h3>
 <h4 id="react-js">React Js</h4>
 <p>This project was bootstrapped with <a href="https://github.com/facebook/create-react-app">Create React App</a>.</p>
@@ -59,9 +70,7 @@
 <td>Component shown after a user selects a category and a company, here she can see every service provided by an specific partner.</td>
 </tr>
 </tbody>
-</table><h2 id="acknowledgments">Acknowledgments</h2>
-<p>maybe</p>
-<blockquote>
+</table><blockquote>
 <p>Written with <a href="https://stackedit.io/">StackEdit</a>.</p>
 </blockquote>
 
