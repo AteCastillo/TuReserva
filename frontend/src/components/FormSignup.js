@@ -119,7 +119,7 @@ const FormSignup = () => {
                 onChange={handleChange} defaultValue="">
                     <option value='id-01'>Stetic</option>
                     <option value='id-02'>Massages</option>
-                    <option value='id-03'>Cleaning</option>
+                    <option value='id-03'>Home</option>
                </select>
                {errors.category && <p>{errors.category}</p>}
 

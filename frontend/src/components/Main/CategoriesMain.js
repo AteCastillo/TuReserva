@@ -12,7 +12,7 @@ export const CategoriesMain = () => {
         <div className="main-categories">
         <CategoryIcon id="id-01" name="Stetic" img={stetic}/>
         <CategoryIcon id="id-02" name="Massages" img={massage}/>
-        <CategoryIcon id="id-3" name="Cleaning" img={clean}/>
+        <CategoryIcon id="id-3" name="Home" img={clean}/>
         </div>
     );
 };
